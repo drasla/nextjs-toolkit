@@ -25,6 +25,8 @@
         "@types/pbkdf2": "^3.1.2",
         "@types/react": "^19.1.2",
         "@types/react-dom": "^19.1.2",
+        "esbuild": "^0.25.3",
+        "esbuild-css-modules-plugin": "^3.1.4",
         "eslint": "^9.25.1",
         "eslint-config-prettier": "^10.1.2",
         "eslint-plugin-react": "^7.37.5",
@@ -39,14 +41,20 @@
         "typescript-eslint": "^8.31.1"
     },
     "peerDependencies": {
+        "@types/pbkdf2": "^3.1.2",
         "pbkdf2": "^3.1.2",
         "postcss": "^8.5.3",
-        "tailwindcss": "^4.1.4",
-        "@types/pbkdf2": "^3.1.2"
+        "tailwindcss": "^4.1.4"
     },
     "private": false,
     "engines": {
         "node": ">= 20.15.0",
         "pnpm": ">= 10.0.0"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "repository": {
+        "url": "https://github.com/drasla/nextjs-toolkit"
     }
 }
