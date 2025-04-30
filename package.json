@@ -3,8 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
+    "styles": "dist/styles.css",
+    "files": [
+        "dist",
+        "README.md"
+    ],
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles/styles.css --minify"
     },
     "dependencies": {
         "pbkdf2": "^3.1.2",
@@ -12,6 +18,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.25.1",
+        "@tailwindcss/cli": "^4.1.4",
         "@types/node": "^22.15.3",
         "@types/pbkdf2": "^3.1.2",
         "@types/react": "^19.1.2",
@@ -21,11 +28,21 @@
         "eslint-plugin-react": "^7.37.5",
         "globals": "^16.0.0",
         "next": "^15.3.1",
+        "postcss": "^8.5.3",
         "prettier": "^3.5.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "tailwindcss": "^4.1.4",
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.31.1"
     },
-    "private": true
+    "peerDependencies": {
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.4"
+    },
+    "private": false,
+    "engines": {
+        "node": ">= 20.15.0",
+        "pnpm": ">= 10.0.0"
+    }
 }
