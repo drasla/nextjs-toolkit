@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "inlineSourceMap": true,
+    "removeComments": true,
+    "outDir": "./src"
+  },
+  "include": [
+    "./src/*",
+    "./src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

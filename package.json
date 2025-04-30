@@ -1,0 +1,31 @@
+{
+    "name": "toolkit-practice",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "pbkdf2": "^3.1.2",
+        "tailwind-merge": "^3.2.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.25.1",
+        "@types/node": "^22.15.3",
+        "@types/pbkdf2": "^3.1.2",
+        "@types/react": "^19.1.2",
+        "@types/react-dom": "^19.1.2",
+        "eslint": "^9.25.1",
+        "eslint-config-prettier": "^10.1.2",
+        "eslint-plugin-react": "^7.37.5",
+        "globals": "^16.0.0",
+        "next": "^15.3.1",
+        "prettier": "^3.5.3",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "typescript": "^5.5.3",
+        "typescript-eslint": "^8.31.1"
+    },
+    "private": true
+}
