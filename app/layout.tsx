@@ -1,7 +1,7 @@
 import { Viewport } from "next";
 import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-import fnEnv from "@root/functions/env";
+import fnEnv from "../src/functions/env";
 
 export const viewport: Viewport = {
     width: "device-width",

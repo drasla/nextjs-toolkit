@@ -1,4 +1,4 @@
-import { createSalt, salting } from "@root/functions/salt/base";
+import { createSalt, salting } from "./base";
 
 const fnSalt = {
     createSalt: createSalt,

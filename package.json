@@ -1,6 +1,6 @@
 {
-    "name": "toolkit-practice",
-    "version": "1.0.0",
+    "name": "@drasla/nextjs-toolkit",
+    "version": "0.0.1",
     "description": "",
     "main": "dist/index.js",
     "styles": "dist/styles.css",
@@ -9,8 +9,10 @@
         "README.md"
     ],
     "scripts": {
-        "build": "tsc",
-        "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles/styles.css --minify"
+        "build:ts": "tsc -p tsconfig.export.json",
+        "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles/styles.css --minify",
+        "build": "pnpm build:ts && pnpm build:css",
+        "prepublishOnly": "pnpm build"
     },
     "dependencies": {
         "pbkdf2": "^3.1.2",
@@ -37,8 +39,10 @@
         "typescript-eslint": "^8.31.1"
     },
     "peerDependencies": {
+        "pbkdf2": "^3.1.2",
         "postcss": "^8.5.3",
-        "tailwindcss": "^4.1.4"
+        "tailwindcss": "^4.1.4",
+        "@types/pbkdf2": "^3.1.2"
     },
     "private": false,
     "engines": {
