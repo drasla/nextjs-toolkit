@@ -2,7 +2,6 @@
 
 import { ReactNode } from "react";
 import "../../styles/index.css";
-import { Viewport } from "next";
 
 type Props = {
     children: ReactNode;
