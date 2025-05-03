@@ -9,18 +9,19 @@
         "README.md"
     ],
     "scripts": {
+        "dev": "next dev --turbopack",
         "build:ts": "tsc -p tsconfig.export.json",
         "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles/styles.css --minify",
         "build": "pnpm build:ts && pnpm build:css",
         "prepublishOnly": "pnpm build"
     },
     "dependencies": {
-        "pbkdf2": "^3.1.2",
-        "tailwind-merge": "^3.2.0"
+        "pbkdf2": "^3.1.2"
     },
     "devDependencies": {
         "@eslint/js": "^9.25.1",
         "@tailwindcss/cli": "^4.1.4",
+        "@tailwindcss/postcss": "^4.1.4",
         "@types/node": "^22.15.3",
         "@types/pbkdf2": "^3.1.2",
         "@types/react": "^19.1.2",

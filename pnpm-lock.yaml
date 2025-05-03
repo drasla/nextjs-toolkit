@@ -11,14 +11,14 @@ importers:
       pbkdf2:
         specifier: ^3.1.2
         version: 3.1.2
-      tailwind-merge:
-        specifier: ^3.2.0
-        version: 3.2.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.25.1
         version: 9.25.1
       '@tailwindcss/cli':
+        specifier: ^4.1.4
+        version: 4.1.4
+      '@tailwindcss/postcss':
         specifier: ^4.1.4
         version: 4.1.4
       '@types/node':
@@ -77,6 +77,10 @@ importers:
         version: 8.31.1(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3)
 
 packages:
+
+  '@alloc/quick-lru@5.2.0':
+    resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
+    engines: {node: '>=10'}
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -638,6 +642,9 @@ packages:
   '@tailwindcss/oxide@4.1.4':
     resolution: {integrity: sha512-p5wOpXyOJx7mKh5MXh5oKk+kqcz8T+bA3z/5VWWeQwFrmuBItGwz8Y2CHk/sJ+dNb9B0nYFfn0rj/cKHZyjahQ==}
     engines: {node: '>= 10'}
+
+  '@tailwindcss/postcss@4.1.4':
+    resolution: {integrity: sha512-bjV6sqycCEa+AQSt2Kr7wpGF1bOZJ5wsqnLEkqSbM/JEHxx/yhMH8wHmdkPyApF9xhHeMSwnnkDUUMMM/hYnXw==}
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
@@ -1685,9 +1692,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  tailwind-merge@3.2.0:
-    resolution: {integrity: sha512-FQT/OVqCD+7edmmJpsgCsY820RTD5AkBryuG5IUqR5YQZSdj5xlH5nLgH7YPths7WsLPSpSBNneJdM8aS8aeFA==}
-
   tailwindcss@4.1.4:
     resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
 
@@ -1783,6 +1787,8 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '@alloc/quick-lru@5.2.0': {}
 
   '@emnapi/runtime@1.4.3':
     dependencies:
@@ -2170,6 +2176,14 @@ snapshots:
       '@tailwindcss/oxide-wasm32-wasi': 4.1.4
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.4
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.4
+
+  '@tailwindcss/postcss@4.1.4':
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      '@tailwindcss/node': 4.1.4
+      '@tailwindcss/oxide': 4.1.4
+      postcss: 8.5.3
+      tailwindcss: 4.1.4
 
   '@types/estree@1.0.7': {}
 
@@ -3490,8 +3504,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  tailwind-merge@3.2.0: {}
 
   tailwindcss@4.1.4: {}
 

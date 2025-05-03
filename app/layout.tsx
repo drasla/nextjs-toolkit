@@ -1,7 +1,9 @@
 import { Viewport } from "next";
 import { PropsWithChildren } from "react";
-import { twMerge } from "tailwind-merge";
 import fnEnv from "../src/functions/env";
+import HTML from "../src/layout/html/base";
+import VerticalLayout from "../src/layout/vertical/verticalLayout";
+import { ThemeProvider } from "../src";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -12,9 +14,11 @@ async function RootLayout({ children }: PropsWithChildren) {
     const { string: fnString } = await fnEnv.server();
 
     return (
-        <html lang={await fnString("HTML_LANG", "en")}>
-            <body className={twMerge("text-sm", "lg:text-base")}>{children}</body>
-        </html>
+        <ThemeProvider>
+            <HTML lang={await fnString("HTML_LANG", "ko")}>
+                <VerticalLayout>{children}</VerticalLayout>
+            </HTML>
+        </ThemeProvider>
     );
 }
 
