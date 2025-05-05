@@ -42,6 +42,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.PACKAGE_PUBLISH_KEY}}
 
+      - name: Remove .npmrc to reset registry for npmjs
+        run: rm -f .npmrc
+
       - name: Publish to NPM.JS
         run: pnpm publish --no-git-checks --access public --registry=https://registry.npmjs.org
         env:
