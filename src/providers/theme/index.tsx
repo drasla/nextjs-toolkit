@@ -1,3 +1,4 @@
-import { ThemeProvider, useTheme } from "./provider";
+import { ThemeProvider } from "./provider";
+import { useTheme, ThemeStateProvider, ThemeUIProvider } from "./client";
 
-export { useTheme, ThemeProvider };
+export { useTheme, ThemeProvider, ThemeStateProvider, ThemeUIProvider };

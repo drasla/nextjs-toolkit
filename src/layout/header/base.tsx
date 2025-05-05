@@ -1,6 +1,13 @@
-import { twMerge } from "../../functions/twMerge";
+"use client";
+
+import { twMerge } from "tailwind-merge";
+import { useTheme } from "../../providers/theme";
+import { useAside } from "../../providers/aside";
 
 function Header() {
+    const { theme, setTheme } = useTheme();
+    const { open, setOpen } = useAside();
+
     return (
         <header
             className={twMerge(
@@ -12,7 +19,20 @@ function Header() {
                 ["theme-border", "border-b"],
                 "theme-paper",
             )}>
-            header
+            <button
+                onClick={() => {
+                    console.log("theme change");
+                    setTheme();
+                }}>
+                {theme}
+            </button>
+            <button
+                onClick={() => {
+                    console.log("aside change");
+                    setOpen(!open);
+                }}>
+                {open ? "close" : "open"}
+            </button>
         </header>
     );
 }

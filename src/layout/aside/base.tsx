@@ -1,11 +1,11 @@
-import { twMerge } from "../../functions/twMerge";
+"use client";
 
-interface Props {
-    open: boolean;
-    onClose: VoidFunction;
-}
+import { twMerge } from "tailwind-merge";
+import { useAside } from "../../providers/aside";
 
-function Aside({ open, onClose }: Props) {
+function Aside() {
+    const { open } = useAside();
+
     return (
         <aside
             className={twMerge(

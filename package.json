@@ -16,7 +16,8 @@
         "prepublishOnly": "pnpm build"
     },
     "dependencies": {
-        "pbkdf2": "^3.1.2"
+        "pbkdf2": "^3.1.2",
+        "tailwind-merge": "^3.2.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.25.1",

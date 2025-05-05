@@ -7,6 +7,8 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
     --default-font-family: "Pretendard", sans-serif;
     --width-aside: 200px;
@@ -20,7 +22,7 @@
 
     --color-dark-text: rgba(255, 255, 255, 0.9);
     --color-dark-text-disabled: rgba(255, 255, 255, 0.38);
-    --color-dark-divider: rgba(38, 38, 38, 1);
+    --color-dark-divider: rgba(88, 88, 88, 1);
     --color-dark-background: rgba(55, 55, 55, 1);
     --color-dark-paper: rgba(38, 38, 38, 1);
 
@@ -109,13 +111,13 @@
 }
 
 .theme-paper {
-    @apply bg-light-paper dark:bg-dark-paper;
+    @apply bg-light-paper dark:bg-dark-paper transition-colors duration-200;
 }
 
 .theme-background {
-    @apply bg-light-background dark:bg-dark-background;
+    @apply bg-light-background dark:bg-dark-background transition-colors duration-200;
 }
 
 .theme-border {
-    @apply border-light-divider dark:border-dark-divider;
+    @apply border-light-divider dark:border-dark-divider transition-colors duration-200;
 }

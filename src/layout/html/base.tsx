@@ -2,6 +2,9 @@
 
 import { ReactNode } from "react";
 import "../../styles/index.css";
+import { twMerge } from "tailwind-merge";
+import { ThemeProvider } from "../../providers/theme";
+import { AsideProvider } from "../../providers/aside";
 
 type Props = {
     children: ReactNode;
@@ -10,9 +13,13 @@ type Props = {
 
 async function HTML({ children, lang }: Props) {
     return (
-        <html lang={lang || "ko"}>
-            <body className={"theme-initial"}>{children}</body>
-        </html>
+        <ThemeProvider>
+            <AsideProvider>
+                <html lang={lang || "ko"}>
+                    <body className={twMerge("theme-initial")}>{children}</body>
+                </html>
+            </AsideProvider>
+        </ThemeProvider>
     );
 }
 
