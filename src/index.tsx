@@ -2,13 +2,9 @@
 export * from "./functions/env";
 export * from "./functions/salt";
 
-export { fnEnv } from "./functions/env";
-
 // Layouts
 export * from "./layout/html";
 export * from "./layout/vertical";
-
-export { HTML } from "./layout/html";
 
 // Components
 export * from "./components/button";
