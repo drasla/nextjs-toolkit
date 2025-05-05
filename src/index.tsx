@@ -12,6 +12,9 @@ export * from "./layout/header";
 // Components
 export * from "./components/button";
 
+// hooks
+export * from "./hooks/useRipple";
+
 // Providers
 export * from "./providers/theme";
 export * from "./providers/aside";
