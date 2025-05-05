@@ -1,7 +1,6 @@
 "use server";
 
 import { PropsWithChildren, ReactNode } from "react";
-import "../../styles/index.css";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "../../providers/theme";
 import { AsideProvider } from "../../providers/aside";
