@@ -41,9 +41,9 @@
     --color-success-dark: rgba(56, 142, 60, 1);
     --color-success-contrast: rgba(255, 255, 255, 1);
 
-    --color-warning-main: rgba(255, 152, 0, 1);
-    --color-warning-light: rgba(255, 235, 205, 1);
-    --color-warning-dark: rgba(245, 158, 11, 1);
+    --color-warning-main: rgba(255, 167, 38, 1);
+    --color-warning-light: rgba(255, 183, 77, 1);
+    --color-warning-dark: rgba(245, 124, 0, 1);
     --color-warning-contrast: rgba(255, 255, 255, 1);
 
     --color-error-main: rgba(244, 67, 54, 1);
@@ -55,6 +55,11 @@
     --color-info-light: rgba(229, 242, 244, 1);
     --color-info-dark: rgba(0, 150, 136, 1);
     --color-info-contrast: rgba(255, 255, 255, 1);
+
+    --color-disabled-main: rgba(200, 200, 200, 1);
+    --color-disabled-light: rgba(240, 240, 240, 1);
+    --color-disabled-dark: rgba(160, 160, 160, 1);
+    --color-disabled-contrast: rgba(255, 255, 255, 1);
 }
 
 @theme {
@@ -104,20 +109,44 @@
     --color-info-light: var(--color-info-light);
     --color-info-dark: var(--color-info-dark);
     --color-info-contrast: var(--color-info-contrast);
+
+    --color-disabled-main: var(--color-disabled-main);
+    --color-disabled-light: var(--color-disabled-light);
+    --color-disabled-dark: var(--color-disabled-dark);
+    --color-disabled-contrast: var(--color-disabled-contrast);
 }
 
-.theme-initial {
-    @apply text-sm md:text-base text-light-text dark:text-dark-text border-light-divider dark:border-dark-divider bg-light-background dark:bg-dark-background relative antialiased;
-}
+@layer base {
+    .theme-initial {
+        @apply text-sm md:text-base text-light-text dark:text-dark-text border-light-divider dark:border-dark-divider bg-light-background dark:bg-dark-background relative antialiased;
+    }
 
-.theme-paper {
-    @apply bg-light-paper dark:bg-dark-paper transition-colors duration-200;
-}
+    .theme-paper {
+        @apply bg-light-paper dark:bg-dark-paper transition-colors duration-200;
+    }
 
-.theme-background {
-    @apply bg-light-background dark:bg-dark-background transition-colors duration-200;
-}
+    .theme-background {
+        @apply bg-light-background dark:bg-dark-background transition-colors duration-200;
+    }
 
-.theme-border {
-    @apply border-light-divider dark:border-dark-divider transition-colors duration-200;
+    .theme-border {
+        @apply border-light-divider dark:border-dark-divider transition-colors duration-200;
+    }
+
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.1);
+        transform: scale(0);
+        animation: ripple-animation 700ms linear;
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
 }

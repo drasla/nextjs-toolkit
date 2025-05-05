@@ -4,7 +4,7 @@ import { VerticalLayout } from "../src";
 import fnEnv from "../src/functions/env";
 import HTML from "../src/layout/html";
 import Aside from "../src/layout/aside";
-import Header from "../src/layout/header";
+import Header from "./_components/layout/header/header";
 
 export const viewport: Viewport = {
     width: "device-width",
