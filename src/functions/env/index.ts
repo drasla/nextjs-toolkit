@@ -3,4 +3,6 @@ const fnEnv = {
     client: () => import("./clientSide"),
 };
 
+export { fnEnv };
+
 export default fnEnv;

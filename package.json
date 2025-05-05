@@ -1,6 +1,6 @@
 {
     "name": "@drasla/nextjs-toolkit",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "",
     "main": "dist/index.js",
     "styles": "dist/styles.css",
@@ -13,7 +13,8 @@
         "build:ts": "tsc -p tsconfig.export.json",
         "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles/styles.css --minify",
         "build": "pnpm build:ts && pnpm build:css",
-        "prepublishOnly": "pnpm build"
+        "prepublishOnly": "pnpm build",
+        "prepack": "pnpm build"
     },
     "dependencies": {
         "pbkdf2": "^3.1.2",
