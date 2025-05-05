@@ -4,5 +4,3 @@ const fnEnv = {
 };
 
 export { fnEnv };
-
-export default fnEnv;
