@@ -1,5 +1,6 @@
 // Functions
 export { fnEnv } from "./functions/env";
+export { MutationSA, QuerySA } from "./functions/apollo";
 
 // Layouts
 export { HTML } from "./layout/html";
@@ -12,6 +13,7 @@ export * from "./components/button";
 export * from "./hooks/useRipple";
 
 // Providers
+export * from "./providers/apollo";
 export * from "./providers/theme";
 export * from "./providers/aside";
 
