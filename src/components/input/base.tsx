@@ -2,6 +2,8 @@
 
 import {
     ChangeEventHandler,
+    FocusEvent,
+    KeyboardEvent,
     InputHTMLAttributes,
     PropsWithChildren,
     useEffect,
@@ -9,12 +11,16 @@ import {
     useState,
 } from "react";
 import { twMerge } from "tailwind-merge";
+import { THEME_COLOR, THEME_SIZE } from "../../index";
 
 export interface InputProps extends PropsWithChildren {
     className?: string;
+    label?: string;
     type?: InputHTMLAttributes<HTMLInputElement>["type"];
     size?: THEME_SIZE;
     disabled?: boolean;
+    value?: string;
+    placeholder?: string;
     color?: THEME_COLOR;
     fullWidth?: boolean;
     shrink?: boolean;
@@ -32,7 +38,7 @@ function Input({
     shrink,
     ...props
 }: InputProps) {
-    const [isFocused, setFocused] = useState(shrink ? shrink : false);
+    const [isFocused, setIsFocused] = useState(shrink ? shrink : false);
     const [parentBgColor, setParentBgColor] = useState<string>("transparent");
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +63,7 @@ function Input({
         },
         onNumberKeyDown: (e: KeyboardEvent<HTMLInputElement>) => {
             const allowedKeys = ["ArrowUp", "ArrowDown", "Backspace", "Delete", "Enter"];
-            if (allowedKeys.includes(e.Key) || (e.key >= "0" && e.key <= "9")) {
+            if (allowedKeys.includes(e.key) || (e.key >= "0" && e.key <= "9")) {
                 return;
             }
             e.preventDefault();
