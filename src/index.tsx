@@ -8,6 +8,7 @@ export { VerticalLayout } from "./layout/vertical";
 
 // Components
 export * from "./components/button";
+export * from "./components/input";
 
 // hooks
 export * from "./hooks/useRipple";
