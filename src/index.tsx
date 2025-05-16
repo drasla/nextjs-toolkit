@@ -1,6 +1,6 @@
 // Functions
 export { fnEnv } from "./functions/env";
-export { MutationSA, QuerySA } from "./functions/apollo";
+export { GraphQLSA } from "./functions/apollo";
 
 // Layouts
 export { HTML } from "./layout/html";
@@ -18,6 +18,7 @@ export * from "./providers/apollo";
 export * from "./providers/theme";
 export * from "./providers/aside";
 
+// Theme 관련 Type 정의
 export type THEME_COLOR =
     | "primary"
     | "secondary"
@@ -28,3 +29,8 @@ export type THEME_COLOR =
     | "disabled";
 export type BUTTON_VARIANT = "outlined" | "filled";
 export type THEME_SIZE = "small" | "medium" | "large";
+
+// Server Actino 관련 Type 정의
+export type ActionOutput = {
+    error?: string;
+};

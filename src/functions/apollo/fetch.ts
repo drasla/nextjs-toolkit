@@ -7,12 +7,13 @@ import { ApolloLink, HttpLink } from "@apollo/client";
 import { fnEnv } from "../env";
 import { setContext } from "@apollo/client/link/context";
 import { cookies } from "next/headers";
+import { ConfigConstants } from "../../constants/env/configConstants";
 
 export const { getClient } = registerApolloClient(async () => {
     const { string: fnString } = await fnEnv.server();
 
     const httpLink = new HttpLink({
-        uri: await fnString("GRAPHQL_API_URL", ""),
+        uri: await fnString(ConfigConstants.GRAPHQL_API_URL, ""),
         fetchOptions: {
             cache: "no-store",
             credentials: "include",
@@ -20,7 +21,7 @@ export const { getClient } = registerApolloClient(async () => {
     });
 
     const authLink = setContext(async (_, { headers }) => {
-        const token = (await cookies()).get("Authorization");
+        const token = (await cookies()).get(ConfigConstants.API_TOKEN_NAME);
 
         return {
             headers: {
@@ -35,3 +36,8 @@ export const { getClient } = registerApolloClient(async () => {
         link: ApolloLink.from([authLink, httpLink]),
     });
 });
+
+export type GraphQLActionResult<T> = {
+    data?: T;
+    error?: any;
+};

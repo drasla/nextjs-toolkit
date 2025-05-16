@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import ButtonServerSide from "./serverSide";
 import { BUTTON_VARIANT, THEME_COLOR, THEME_SIZE } from "../../index";
 import useRipple from "../../hooks/useRipple/base";
+import { getComponentSizeClass } from "../functions";
 
 export interface ButtonProps extends PropsWithChildren {
     className?: string;
@@ -28,6 +29,7 @@ function Button({
     variant,
     size,
     disabled,
+    loading = false,
     ...props
 }: ButtonProps) {
     const { containerRef, createRipple } = useRipple<HTMLButtonElement>(color);
@@ -36,9 +38,9 @@ function Button({
         ["relative", "overflow-hidden", "cursor-pointer"],
         ["rounded-md"],
         ["font-bold"],
-        getButtonSizeClass(size),
+        getComponentSizeClass(size),
         getButtonColorClass(variant, color),
-        disabled && getButtonColorClass(variant, "disabled"),
+        (disabled || loading) && getButtonColorClass(variant, "disabled"),
         className,
     );
 
@@ -100,15 +102,4 @@ function getButtonColorClass(
         return outlinedColorClasses[color];
     }
     return filledColorClasses[color];
-}
-
-function getButtonSizeClass(size?: THEME_SIZE): string {
-    switch (size) {
-        case "large":
-            return twMerge("h-10", "px-3", "text-lg");
-        case "small":
-            return twMerge("h-8", "px-2", "text-sm");
-        default:
-            return twMerge("h-9", "px-3", "text-base");
-    }
 }

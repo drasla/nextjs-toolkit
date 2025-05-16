@@ -56,6 +56,9 @@ export function boolean(prefix: string, key: string, ...defaults: boolean[]): bo
 }
 
 function getValue(prefix: string, key: string): string {
-    if (prefix) return `${prefix}_${key}`;
+    if (prefix) {
+        const envKey = `${prefix}_${key}`;
+        return process.env[envKey] || "";
+    }
     return process.env[key] || "";
 }

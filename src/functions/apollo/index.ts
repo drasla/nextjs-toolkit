@@ -1,4 +1,3 @@
-import { MutationSA } from "./mutationAction";
-import { QuerySA } from "./queryAction";
+import { GraphQLSA } from "./action";
 
-export { MutationSA, QuerySA };
+export { GraphQLSA };

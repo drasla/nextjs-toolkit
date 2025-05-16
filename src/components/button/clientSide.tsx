@@ -4,9 +4,9 @@ import { ButtonProps } from "./base";
 import { forwardRef } from "react";
 
 const ButtonClientSide = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ onClick, children, ...props }, ref) => {
+    ({ onClick, children, loading, ...props }, ref) => {
         return (
-            <button ref={ref} onClick={onClick} {...props}>
+            <button ref={ref} onClick={onClick} disabled={loading} {...props}>
                 {children}
             </button>
         );

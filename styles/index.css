@@ -7,12 +7,15 @@
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 
+@source "../app";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
     --default-font-family: "Pretendard", sans-serif;
     --width-aside: 200px;
     --height-header: 70px;
+    --height-footer: 0;
 
     --color-light-text: rgba(0, 0, 0, 0.87);
     --color-light-text-disabled: rgba(0, 0, 0, 0.38);

@@ -12,6 +12,7 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 import { THEME_COLOR, THEME_SIZE } from "../../index";
+import { getComponentSizeClass } from "../functions";
 
 export interface InputProps extends PropsWithChildren {
     className?: string;
@@ -21,9 +22,11 @@ export interface InputProps extends PropsWithChildren {
     disabled?: boolean;
     value?: string;
     placeholder?: string;
+    required?: boolean;
     color?: THEME_COLOR;
     fullWidth?: boolean;
     shrink?: boolean;
+    error?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -33,26 +36,22 @@ function Input({
     label,
     className,
     fullWidth,
-    value,
+    value = "",
     placeholder,
     shrink,
+    error,
     ...props
 }: InputProps) {
     const [isFocused, setIsFocused] = useState(shrink ? shrink : false);
     const [parentBgColor, setParentBgColor] = useState<string>("transparent");
     const containerRef = useRef<HTMLDivElement>(null);
 
-    let customClassName = twMerge("box-border");
-    switch (size) {
-        case "small":
-            customClassName = twMerge(customClassName, "px-4", "py-2");
-            break;
-        case "large":
-            customClassName = twMerge(customClassName, "px-4", "py-4");
-            break;
-        default:
-            customClassName = twMerge(customClassName, "px-4", "py-3");
-    }
+    const mergedClassName = twMerge(
+        ["box-border"],
+        error && "border-error-main",
+        getComponentSizeClass(size),
+        className,
+    );
 
     const handler = {
         onFucus: (_: FocusEvent<HTMLInputElement>) => {
@@ -95,7 +94,10 @@ function Input({
                         "transition-all",
                         "pointer-events-none",
                         "px-1",
-                        isFocused || value ? "-top-2 text-sm text-blue-500" : "top-3 text-base",
+                        isFocused || (value !== undefined && value !== "")
+                            ? "-top-2 text-sm"
+                            : "top-2.5 text-base",
+                        error && "text-error-main",
                     )}
                     style={{ background: parentBgColor }}>
                     {label}
@@ -107,7 +109,7 @@ function Input({
                     "rounded-md",
                     "bg-transparent",
                     "focus:outline-none",
-                    customClassName,
+                    mergedClassName,
                     fullWidth ? "w-full" : "",
                     className,
                 )}
@@ -120,6 +122,7 @@ function Input({
                 }
                 {...props}
             />
+            {error && <div className={twMerge(["text-error-main", "text-sm"])}>{error}</div>}
         </div>
     );
 }

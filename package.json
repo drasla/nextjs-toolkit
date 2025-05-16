@@ -1,6 +1,6 @@
 {
     "name": "@drasla/nextjs-toolkit",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "description": "",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -11,7 +11,7 @@
         "README.md"
     ],
     "scripts": {
-        "dev": "PORT=3000 next dev --turbopack",
+        "dev": "NODE_OPTIONS='--inspect' PORT=3000 next dev --turbopack",
         "codegen": "graphql-codegen --config graphql.config.yml",
         "build:ts": "tsc -p tsconfig.export.json",
         "build:css": "tailwindcss -i styles/index.css -o ./dist/styles/styles.css --minify",
@@ -48,16 +48,21 @@
         "prettier": "^3.5.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "react-hook-form": "^7.56.3",
+        "react-icons": "^5.5.0",
         "tailwindcss": "^4.1.4",
         "typescript": "^5.5.3",
-        "typescript-eslint": "^8.31.1"
+        "typescript-eslint": "^8.31.1",
+        "zod": "^3.24.4"
     },
     "peerDependencies": {
         "@types/pbkdf2": "^3.1.2",
         "pbkdf2": "^3.1.2",
         "postcss": "^8.5.3",
+        "react-hook-form": "^7.56.3",
         "tailwind-merge": "^3.2.0",
-        "tailwindcss": "^4.1.4"
+        "tailwindcss": "^4.1.4",
+        "zod": "^3.24.4"
     },
     "private": false,
     "engines": {

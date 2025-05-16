@@ -87,6 +87,12 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      react-hook-form:
+        specifier: ^7.56.3
+        version: 7.56.3(react@19.1.0)
+      react-icons:
+        specifier: ^5.5.0
+        version: 5.5.0(react@19.1.0)
       tailwindcss:
         specifier: ^4.1.4
         version: 4.1.4
@@ -96,6 +102,9 @@ importers:
       typescript-eslint:
         specifier: ^8.31.1
         version: 8.31.1(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3)
+      zod:
+        specifier: ^3.24.4
+        version: 3.24.4
 
 packages:
 
@@ -2609,6 +2618,17 @@ packages:
     peerDependencies:
       react: ^19.1.0
 
+  react-hook-form@7.56.3:
+    resolution: {integrity: sha512-IK18V6GVbab4TAo1/cz3kqajxbDPGofdF0w7VHdCo0Nt8PrPlOZcuuDq9YYIV1BtjcX78x0XsldbQRQnQXWXmw==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
+  react-icons@5.5.0:
+    resolution: {integrity: sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==}
+    peerDependencies:
+      react: '*'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -3128,6 +3148,9 @@ packages:
 
   zen-observable@0.8.15:
     resolution: {integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==}
+
+  zod@3.24.4:
+    resolution: {integrity: sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg==}
 
 snapshots:
 
@@ -6140,6 +6163,14 @@ snapshots:
       react: 19.1.0
       scheduler: 0.26.0
 
+  react-hook-form@7.56.3(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
+  react-icons@5.5.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   react-is@16.13.1: {}
 
   react@19.1.0: {}
@@ -6740,3 +6771,5 @@ snapshots:
       zen-observable: 0.8.15
 
   zen-observable@0.8.15: {}
+
+  zod@3.24.4: {}
