@@ -25,7 +25,7 @@ export async function GraphQLSA<
         const apiToken = (await cookies()).get(ConfigConstants.API_TOKEN_NAME);
         if (requireAuth && !apiToken) {
             return {
-                error: new Error(ErrorConstants.UnAuthorized),
+                error: new Error(ErrorConstants.UNAUTHORIZED),
             };
         }
 
@@ -49,7 +49,7 @@ export async function GraphQLSA<
         };
     } catch (error) {
         return {
-            error: error instanceof Error ? error : new Error(ErrorConstants.UnknownError),
+            error: error instanceof Error ? error : new Error(ErrorConstants.UNKNOWN_ERROR),
         };
     }
 }
