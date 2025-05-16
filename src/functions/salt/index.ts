@@ -5,4 +5,4 @@ const fnSalt = {
     salting: salting,
 };
 
-export default fnSalt;
+export { fnSalt };
