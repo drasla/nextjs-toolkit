@@ -26,6 +26,9 @@ export * from "./providers/aside";
 // Constants
 export * from "./constants/env";
 
+// Animations
+export * from "./animations";
+
 // Theme 관련 Type 정의
 export type THEME_COLOR =
     | "primary"
