@@ -2,6 +2,7 @@
 export { fnEnv } from "./functions/env";
 export { fnSalt } from "./functions/salt";
 export { GraphQLSA } from "./functions/apollo";
+export type { GraphQLActionResult } from "./functions/apollo";
 
 // Layouts
 export { HTML } from "./layout/html";
