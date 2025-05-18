@@ -7,7 +7,7 @@ import { ApolloLink, HttpLink } from "@apollo/client";
 import { fnEnv } from "../env";
 import { setContext } from "@apollo/client/link/context";
 import { cookies } from "next/headers";
-import { ConfigConstants } from "../../constants/env/configConstants";
+import { ConfigConstants } from "../../constants/env";
 
 export const { getClient } = registerApolloClient(async () => {
     const { string: fnString } = await fnEnv.server();

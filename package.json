@@ -1,6 +1,6 @@
 {
     "name": "@drasla/nextjs-toolkit",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -78,6 +78,11 @@
             "import": "./dist/index.js",
             "require": "./dist/index.js",
             "types": "./dist/index.d.ts"
+        },
+        "./apollo": {
+            "import": "./dist/apollo.js",
+            "require": "./dist/apollo.js",
+            "types": "./dist/apollo.d.ts"
         },
         "./styles": {
             "import": "./dist/styles/styles.css"
