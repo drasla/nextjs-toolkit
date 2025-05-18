@@ -1,6 +1,6 @@
 {
     "name": "@drasla/nextjs-toolkit",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "description": "",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -23,36 +23,36 @@
         "@apollo/client": "^3.13.8",
         "@apollo/client-integration-nextjs": "^0.12.2",
         "pbkdf2": "^3.1.2",
-        "tailwind-merge": "^3.2.0"
+        "tailwind-merge": "^3.3.0"
     },
     "devDependencies": {
-        "@eslint/js": "^9.25.1",
+        "@eslint/js": "^9.27.0",
         "@graphql-codegen/add": "^5.0.3",
         "@graphql-codegen/cli": "^5.0.6",
         "@graphql-codegen/import-types-preset": "^3.0.0",
         "@graphql-codegen/typed-document-node": "^5.1.1",
         "@graphql-codegen/typescript": "^4.1.6",
         "@graphql-codegen/typescript-operations": "^4.6.1",
-        "@tailwindcss/cli": "^4.1.4",
-        "@tailwindcss/postcss": "^4.1.4",
-        "@types/node": "^22.15.3",
+        "@tailwindcss/cli": "^4.1.7",
+        "@tailwindcss/postcss": "^4.1.7",
+        "@types/node": "^22.15.18",
         "@types/pbkdf2": "^3.1.2",
-        "@types/react": "^19.1.2",
-        "@types/react-dom": "^19.1.2",
-        "eslint": "^9.25.1",
-        "eslint-config-prettier": "^10.1.2",
+        "@types/react": "^19.1.4",
+        "@types/react-dom": "^19.1.5",
+        "eslint": "^9.27.0",
+        "eslint-config-prettier": "^10.1.5",
         "eslint-plugin-react": "^7.37.5",
-        "globals": "^16.0.0",
-        "next": "^15.3.1",
+        "globals": "^16.1.0",
+        "next": "^15.3.2",
         "postcss": "^8.5.3",
         "prettier": "^3.5.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "react-hook-form": "^7.56.3",
+        "react-hook-form": "^7.56.4",
         "react-icons": "^5.5.0",
-        "tailwindcss": "^4.1.4",
-        "typescript": "^5.5.3",
-        "typescript-eslint": "^8.31.1",
+        "tailwindcss": "^4.1.7",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.32.1",
         "zod": "^3.24.4"
     },
     "peerDependencies": {
@@ -66,8 +66,8 @@
     },
     "private": false,
     "engines": {
-        "node": ">= 20.15.0",
-        "pnpm": ">= 10.0.0"
+        "node": ">= 20.15.1",
+        "pnpm": ">= 10.10.0"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
