@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 import { THEME_COLOR } from "../../index";
-import { TbCheck } from "react-icons/tb";
+import { TbX } from "react-icons/tb";
 import { getColor } from "../base";
 
 type Props = {
@@ -13,12 +13,12 @@ type Props = {
     loop?: boolean;
 };
 
-export function SuccessAnimation({
+export function ErrorAnimation({
     className,
     width = 120,
     height = 120,
     stroke = 6,
-    color = "success",
+    color = "error",
     loop = false,
 }: Props) {
     const cx = width / 2;
@@ -33,7 +33,7 @@ export function SuccessAnimation({
         overflow: visible;
 
         &.loop {
-            .draw-circle, .inner-circle, .outer-circle, .check-svg {
+            .draw-circle, .inner-circle, .outer-circle, .error-svg {
                 animation-iteration-count: infinite;
                 animation-duration: 2s;
                 animation-fill-mode: forwards;
@@ -43,7 +43,7 @@ export function SuccessAnimation({
 
     .draw-circle {
         fill: transparent;
-        stroke-dasharray: 314; /* 원의 둘레 (2π × 50 ≒ 314) */
+        stroke-dasharray: 314;
         stroke-dashoffset: 314;
         animation: draw-circle 2s forwards;
     }
@@ -116,7 +116,7 @@ export function SuccessAnimation({
         }
     }
 
-    .check-svg {
+    .error-svg {
         top: 0;
         left: 0;
         width: 100%;
@@ -126,11 +126,11 @@ export function SuccessAnimation({
         align-items: center;
         opacity: 0;
         color: #FFFFFF;
-        clip-path: inset(0 100% 0 0);
+        clip-path: inset(100% 0 0 0);
         animation: show-image 2s forwards;
     }
 
-    .check-svg img {
+    .error-svg img {
         width: 50%;
         height: 50%;
         color: white;
@@ -140,12 +140,12 @@ export function SuccessAnimation({
     @keyframes show-image {
         0% {
             opacity: 0;
-            clip-path: inset(0 100% 0 0);
+            clip-path: inset(100% 0 0 0);
         }
 
         50% {
             opacity: 0;
-            clip-path: inset(0 100% 0 0);
+            clip-path: inset(100% 0 0 0);
         }
 
         100% {
@@ -191,8 +191,8 @@ export function SuccessAnimation({
                         strokeWidth={stroke}
                     />
                     <foreignObject x={0} y={0} width={width} height={height}>
-                        <div className={"check-svg"}>
-                            <TbCheck size={(width / 5) * 3} />
+                        <div className={"error-svg"}>
+                            <TbX size={(width / 5) * 3} />
                         </div>
                     </foreignObject>
                 </svg>
