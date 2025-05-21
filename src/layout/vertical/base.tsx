@@ -2,7 +2,6 @@ import { PropsWithChildren, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import { ThemeUIProvider } from "../../providers/theme";
 import { AsideUIProvider } from "../../providers/aside";
-import { TbMenu2 } from "react-icons/tb";
 
 interface Props extends PropsWithChildren {
     aside?: ReactNode;
