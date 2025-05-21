@@ -66,8 +66,8 @@ export function useMenu<T extends HTMLElement = HTMLElement>({
 
         if (anchorElement) {
             const rect = anchorElement.getBoundingClientRect();
-            let menuWidth = 0;
-            let menuHeight = 0;
+            let menuWidth: number;
+            let menuHeight: number;
 
             if (menuRef.current) {
                 menuWidth = menuRef.current.offsetWidth;
@@ -82,22 +82,22 @@ export function useMenu<T extends HTMLElement = HTMLElement>({
                 document.body.removeChild(dummyMenu);
             }
 
-            let top;
+            let top: number;
             if (vertical === "bottom") {
                 top = rect.bottom + window.scrollY + (offset.y || 0);
             } else {
                 top = rect.top + window.scrollY - menuHeight - (offset.y || 0);
             }
 
-            let left;
+            let left: number;
             if (horizontal === "left") {
                 left = rect.left + window.scrollX + (offset.x || 0);
             } else if (horizontal === "right") {
                 left = rect.right + window.scrollX - menuWidth + (offset.x || 0);
-            } else { // center
-                left = rect.left + rect.width / 2 - menuWidth / 2 + window.scrollX + (offset.x || 0);
+            } else {
+                left =
+                    rect.left + rect.width / 2 - menuWidth / 2 + window.scrollX + (offset.x || 0);
             }
-
 
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
