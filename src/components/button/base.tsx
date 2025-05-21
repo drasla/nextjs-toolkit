@@ -1,6 +1,6 @@
 "use client";
 
-import { ButtonHTMLAttributes, MouseEventHandler, PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, MouseEventHandler, PropsWithChildren, forwardRef, Ref } from "react";
 import dynamic from "next/dynamic";
 import { twMerge } from "tailwind-merge";
 import ButtonServerSide from "./serverSide";
@@ -8,7 +8,7 @@ import { BUTTON_VARIANT, THEME_COLOR, THEME_SIZE } from "../../index";
 import useRipple from "../../hooks/useRipple/base";
 import { getComponentSizeClass } from "../functions";
 
-export interface ButtonProps extends PropsWithChildren {
+export type ButtonProps = {
     className?: string;
     type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
     variant?: BUTTON_VARIANT;
@@ -17,23 +17,37 @@ export interface ButtonProps extends PropsWithChildren {
     disabled?: boolean;
     color?: THEME_COLOR;
     onClick?: MouseEventHandler<HTMLButtonElement>;
-}
+} & PropsWithChildren;
 
 const ButtonClient = dynamic(() => import("./clientSide"));
 
-function Button({
-    type = "button",
-    className,
-    onClick,
-    children,
-    color,
-    variant,
-    size,
-    disabled,
-    loading = false,
-    ...props
-}: ButtonProps) {
+const Button = forwardRef(function Button(
+    {
+        type = "button",
+        className,
+        onClick,
+        children,
+        color,
+        variant,
+        size,
+        disabled,
+        loading = false,
+        ...props
+    }: ButtonProps,
+    ref: Ref<HTMLButtonElement>
+) {
     const { containerRef, createRipple } = useRipple<HTMLButtonElement>(color);
+
+    const mergeRefs = (element: HTMLButtonElement | null) => {
+        if (typeof ref === 'function') {
+            ref(element);
+        } else if (ref) {
+            ref.current = element;
+        }
+        if (containerRef) {
+            containerRef.current = element;
+        }
+    };
 
     const mergedClassName = twMerge(
         ["relative", "overflow-hidden", "cursor-pointer"],
@@ -58,7 +72,7 @@ function Button({
         };
         return (
             <ButtonClient
-                ref={containerRef}
+                ref={mergeRefs}
                 onClick={handleClick}
                 {...props}
                 className={mergedClassName}>
@@ -68,11 +82,13 @@ function Button({
     }
 
     return (
-        <ButtonServerSide {...props} className={twMerge(mergedClassName)}>
+        <ButtonServerSide ref={mergeRefs} {...props} className={twMerge(mergedClassName)}>
             {children}
         </ButtonServerSide>
     );
-}
+});
+
+Button.displayName = 'Button';
 
 export default Button;
 

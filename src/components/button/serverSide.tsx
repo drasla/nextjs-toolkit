@@ -1,14 +1,15 @@
-import { ButtonProps } from "./base";
-import { forwardRef } from "react";
+import { forwardRef, ButtonHTMLAttributes, PropsWithChildren } from "react";
 
-const ButtonServerSide = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ onClick, children, loading, ...props }, ref) => {
-        return (
-            <button ref={ref} disabled={loading} {...props}>
-                {children}
-            </button>
-        );
-    },
-);
+type ButtonServerProps = ButtonHTMLAttributes<HTMLButtonElement> & PropsWithChildren;
+
+const ButtonServerSide = forwardRef<HTMLButtonElement, ButtonServerProps>((props, ref) => {
+    return (
+        <button ref={ref} type="button" {...props}>
+            {props.children}
+        </button>
+    );
+});
+
+ButtonServerSide.displayName = 'ButtonServerSide';
 
 export default ButtonServerSide;

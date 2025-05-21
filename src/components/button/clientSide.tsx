@@ -1,16 +1,17 @@
 "use client";
 
-import { ButtonProps } from "./base";
-import { forwardRef } from "react";
+import { forwardRef, ButtonHTMLAttributes, PropsWithChildren } from "react";
 
-const ButtonClientSide = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ onClick, children, loading, ...props }, ref) => {
-        return (
-            <button ref={ref} onClick={onClick} disabled={loading} {...props}>
-                {children}
-            </button>
-        );
-    },
-);
+type ButtonClientProps = ButtonHTMLAttributes<HTMLButtonElement> & PropsWithChildren;
 
-export default ButtonClientSide;
+const ButtonClient = forwardRef<HTMLButtonElement, ButtonClientProps>((props, ref) => {
+    return (
+        <button ref={ref} type="button" {...props}>
+            {props.children}
+        </button>
+    );
+});
+
+ButtonClient.displayName = "ButtonClient";
+
+export default ButtonClient;

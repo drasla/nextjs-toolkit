@@ -120,6 +120,14 @@
 }
 
 @layer base {
+    .ring-light-divider {
+        --tw-ring-color: var(--color-light-divider);
+    }
+
+    .ring-dark-divider {
+        --tw-ring-color: var(--color-dark-divider);
+    }
+
     .theme-initial {
         @apply text-sm md:text-base text-light-text dark:text-dark-text border-light-divider dark:border-dark-divider bg-light-background dark:bg-dark-background relative antialiased;
     }
@@ -133,7 +141,7 @@
     }
 
     .theme-border {
-        @apply border-light-divider dark:border-dark-divider transition-colors duration-200;
+        @apply border-light-divider dark:border-dark-divider  ring-light-divider dark:ring-dark-divider transition-colors duration-200;
     }
 
     .ripple {
@@ -179,4 +187,3 @@
         }
     }
 }
-

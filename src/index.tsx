@@ -10,6 +10,7 @@ export { VerticalLayout } from "./layout/vertical";
 export * from "./components/backdrop";
 export * from "./components/button";
 export * from "./components/input";
+export * from "./components/menu";
 export * from "./components/modal";
 export * from "./components/tooptip";
 
