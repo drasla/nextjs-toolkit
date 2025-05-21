@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useContext } from "react";
+import { PropsWithChildren, ReactNode, useContext } from "react";
 import { MenuContext } from "./menu";
 import { twMerge } from "tailwind-merge";
 
@@ -12,14 +12,14 @@ type MenuItemProps = {
 } & PropsWithChildren;
 
 export function MenuItem({ children, onClick, disabled = false, className, icon }: MenuItemProps) {
-    const { close } = useContext(MenuContext);
+    const { onClose } = useContext(MenuContext);
 
     const handleClick = () => {
         if (disabled) return;
 
         if (onClick) {
             onClick();
-            close();
+            onClose();
         }
     };
 
