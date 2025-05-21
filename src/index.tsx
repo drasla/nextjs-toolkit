@@ -37,7 +37,7 @@ export type THEME_COLOR =
     | "warning"
     | "info"
     | "disabled";
-export type BUTTON_VARIANT = "outlined" | "filled";
+export type BUTTON_VARIANT = "outlined" | "filled" | "text";
 export type THEME_SIZE = "small" | "medium" | "large";
 
 // Server Actino 관련 Type 정의

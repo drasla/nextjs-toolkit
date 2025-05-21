@@ -22,6 +22,7 @@ export interface ButtonProps extends PropsWithChildren {
 const ButtonClient = dynamic(() => import("./clientSide"));
 
 function Button({
+    type = "button",
     className,
     onClick,
     children,
@@ -38,6 +39,7 @@ function Button({
         ["relative", "overflow-hidden", "cursor-pointer"],
         ["rounded-md"],
         ["font-bold"],
+        ["transition-colors", "duration-500"],
         getComponentSizeClass(size),
         getButtonColorClass(variant, color),
         (disabled || loading) && getButtonColorClass(variant, "disabled"),
@@ -94,12 +96,30 @@ const filledColorClasses: Record<string, string> = {
     disabled: twMerge("bg-disabled-main", "text-disabled-contrast"),
 };
 
+const textColorClasses: Record<string, string> = {
+    primary: twMerge("text-primary-main", ["hover:text-primary-contrast", "hover:bg-primary-main"]),
+    secondary: twMerge("text-secondary-main", [
+        "hover:text-secondary-contrast",
+        "hover:bg-secondary-main",
+    ]),
+    success: twMerge("text-success-main", ["hover:text-success-contrast", "hover:bg-success-main"]),
+    warning: twMerge("text-warning-main", ["hover:text-warning-contrast", "hover:bg-warning-main"]),
+    error: twMerge("text-error-main", ["hover:text-error-contrast", "hover:bg-error-main"]),
+    info: twMerge("text-info-main", ["hover:text-info-contrast", "hover:bg-info-main"]),
+    disabled: twMerge("text-disabled-main", [
+        "hover:text-disabled-contrast",
+        "hover:bg-disabled-main",
+    ]),
+};
+
 function getButtonColorClass(
     variant: BUTTON_VARIANT = "filled",
     color: THEME_COLOR = "primary",
 ): string {
     if (variant === "outlined") {
         return outlinedColorClasses[color];
+    } else if (variant === "text") {
+        return textColorClasses[color];
     }
     return filledColorClasses[color];
 }
