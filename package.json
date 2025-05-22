@@ -37,9 +37,9 @@
         "@graphql-codegen/typescript-operations": "^4.6.1",
         "@tailwindcss/cli": "^4.1.7",
         "@tailwindcss/postcss": "^4.1.7",
-        "@types/node": "^22.15.18",
+        "@types/node": "^22.15.21",
         "@types/pbkdf2": "^3.1.2",
-        "@types/react": "^19.1.4",
+        "@types/react": "^19.1.5",
         "@types/react-dom": "^19.1.5",
         "eslint": "^9.27.0",
         "eslint-config-prettier": "^10.1.5",
@@ -55,7 +55,7 @@
         "tailwindcss": "^4.1.7",
         "typescript": "^5.8.3",
         "typescript-eslint": "^8.32.1",
-        "zod": "^3.24.4"
+        "zod": "^3.25.20"
     },
     "peerDependencies": {
         "@apollo/client": "^3.13.8",

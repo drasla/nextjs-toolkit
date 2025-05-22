@@ -1,13 +1,14 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import "tailwindcss";
 
-@layer theme, base, components, utilities;
+/*@layer theme, base, components, utilities;*/
 
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/preflight" layer(base);
-@import "tailwindcss/utilities" layer(utilities);
+/*@import "tailwindcss/theme" layer(theme);*/
+/*@import "tailwindcss/preflight" layer(base);*/
+/*@import "tailwindcss/utilities" layer(utilities);*/
 
 @source "../app";
+@source "../components";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

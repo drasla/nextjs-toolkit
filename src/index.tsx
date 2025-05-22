@@ -7,6 +7,7 @@ export { HTML } from "./layout/html";
 export { VerticalLayout } from "./layout/vertical";
 
 // Components
+export * from "./components/accordion";
 export * from "./components/backdrop";
 export * from "./components/button";
 export * from "./components/input";
