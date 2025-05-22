@@ -4,7 +4,7 @@ type ButtonServerProps = ButtonHTMLAttributes<HTMLButtonElement> & PropsWithChil
 
 const ButtonServerSide = forwardRef<HTMLButtonElement, ButtonServerProps>((props, ref) => {
     return (
-        <button ref={ref} type="button" {...props}>
+        <button ref={ref} {...props}>
             {props.children}
         </button>
     );

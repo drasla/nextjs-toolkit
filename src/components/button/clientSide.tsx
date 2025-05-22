@@ -6,7 +6,7 @@ type ButtonClientProps = ButtonHTMLAttributes<HTMLButtonElement> & PropsWithChil
 
 const ButtonClient = forwardRef<HTMLButtonElement, ButtonClientProps>((props, ref) => {
     return (
-        <button ref={ref} type="button" {...props}>
+        <button ref={ref} {...props}>
             {props.children}
         </button>
     );
