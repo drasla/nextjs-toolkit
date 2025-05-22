@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useContext } from "react";
 import { AccordionContext } from "./base";
 import { twMerge } from "tailwind-merge";
 
