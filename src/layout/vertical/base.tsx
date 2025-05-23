@@ -25,7 +25,9 @@ function VerticalLayout({ aside, children, header, footer }: Props) {
                         <ThemeUIProvider>{header}</ThemeUIProvider>
                     </AsideUIProvider>
                 )}
-                <main>{children}</main>
+                <main className={twMerge(["min-h-[calc(100dvh-var(--height-header))]"])}>
+                    {children}
+                </main>
                 {footer}
             </div>
         </div>
