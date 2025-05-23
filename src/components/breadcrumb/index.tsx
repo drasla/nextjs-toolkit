@@ -1,4 +1,5 @@
 import Breadcrumb from "./base";
 import BreadcrumbItem from "./breadcrumbItem";
+import type { BreadcrumbItemProps } from "./breadcrumbItem";
 
-export { Breadcrumb, BreadcrumbItem };
+export { Breadcrumb, BreadcrumbItem, BreadcrumbItemProps };
