@@ -30,9 +30,9 @@
     --color-dark-background: rgba(55, 55, 55, 1);
     --color-dark-paper: rgba(38, 38, 38, 1);
 
-    --color-primary-main: rgba(6, 101, 239, 1);
-    --color-primary-light: rgba(227, 242, 253, 1);
-    --color-primary-dark: rgba(66, 165, 245, 1);
+    --color-primary-main: rgb(67, 137, 238);
+    --color-primary-light: rgb(188, 223, 248);
+    --color-primary-dark: rgb(17, 115, 196);
     --color-primary-contrast: rgba(255, 255, 255, 1);
 
     --color-secondary-main: rgba(156, 39, 176, 1);

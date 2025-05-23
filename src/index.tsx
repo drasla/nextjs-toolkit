@@ -9,6 +9,7 @@ export { VerticalLayout } from "./layout/vertical";
 // Components
 export * from "./components/accordion";
 export * from "./components/backdrop";
+export * from "./components/breadcrumb";
 export * from "./components/button";
 export * from "./components/input";
 export * from "./components/menu";
