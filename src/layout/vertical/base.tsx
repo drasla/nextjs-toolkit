@@ -28,7 +28,7 @@ function VerticalLayout({ aside, children, header, footer }: Props) {
                 <main
                     className={twMerge(
                         ["w-full", "min-h-[calc(100dvh-var(--height-header))]"],
-                        ["py-6", "max-w-7xl", "mx-auto"],
+                        ["py-6"],
                     )}>
                     {children}
                 </main>

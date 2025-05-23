@@ -32,7 +32,7 @@ function BreadcrumbItem({ label, icon, isActive, className, href }: BreadcrumbIt
     }
 
     return (
-        <span className={twMerge(isActive ? ["font-medium", "text-primary-dark"] : "", className)}>
+        <span className={twMerge(isActive ? ["font-bold", "text-primary-dark"] : "", className)}>
             {content}
         </span>
     );
