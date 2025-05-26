@@ -1,4 +1,4 @@
-import { THEME_SIZE } from "../index";
+import { THEME_COLOR, THEME_SIZE } from "../index";
 import { twMerge } from "tailwind-merge";
 
 export function getComponentSizeClass(size?: THEME_SIZE): string {
@@ -10,4 +10,8 @@ export function getComponentSizeClass(size?: THEME_SIZE): string {
         default:
             return twMerge("py-2", "px-4", "text-base");
     }
+}
+
+export function getThemeColorBackground(color?: THEME_COLOR): string {
+    return `bg-${color}-main`;
 }

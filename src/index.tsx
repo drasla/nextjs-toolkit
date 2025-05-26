@@ -16,6 +16,7 @@ export * from "./components/menu";
 export * from "./components/modal";
 export * from "./components/paper";
 export * from "./components/stepper";
+export * from "./components/toast";
 export * from "./components/tooptip";
 
 // hooks
