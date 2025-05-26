@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
-    isPadding: boolean;
+    isPadding?: boolean;
     className?: string;
 } & PropsWithChildren;
 
