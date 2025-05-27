@@ -1,4 +1,4 @@
 import Table from "./base";
-import type { TableProps } from "./_types";
+import type { TableProps, TableConfig } from "./_types";
 
-export { Table, TableProps };
+export { Table, TableProps, TableConfig };

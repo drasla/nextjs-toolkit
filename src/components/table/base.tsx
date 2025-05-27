@@ -1,17 +1,17 @@
-import { TableProps } from "./_types";
+import { getNestedValue, TableProps } from "./_types";
 import { twMerge } from "tailwind-merge";
 import { Tooltip } from "../tooltip";
 import { getTextAlignClass, getTextColorClass } from "./_utils";
 import TableRow from "./row";
 
-function Table<T extends object>({ data, columns, className = "", onRowClick }: TableProps<T>) {
+function Table<T extends object>({ data, config, className = "", onRowClick }: TableProps<T>) {
     return (
         <div className={twMerge("w-full")}>
             <div className={"overflow-x-auto"}>
                 <table className={twMerge("min-w-full", className)}>
                     <thead>
                         <tr>
-                            {columns.map((column, index) => (
+                            {config.map((column, index) => (
                                 <th
                                     key={index}
                                     className={twMerge(
@@ -30,8 +30,8 @@ function Table<T extends object>({ data, columns, className = "", onRowClick }: 
                     </thead>
                     <tbody>
                         {data.map((item, rowIndex) => {
-                            const tableCells = columns.map((column, colIndex) => {
-                                const value = item[column.key];
+                            const tableCells = config.map((column, colIndex) => {
+                                const value = getNestedValue(item, column.key);
                                 const tooltipContent =
                                     column.tooltip && typeof column.tooltip === "function"
                                         ? column.tooltip(item)
@@ -47,7 +47,7 @@ function Table<T extends object>({ data, columns, className = "", onRowClick }: 
                                         className={twMerge(
                                             ["px-4", "py-2"],
                                             ["border-b", "theme-border"],
-                                            column.disableMobile ? ["hidden","md:table-cell"] : "",
+                                            column.disableMobile ? ["hidden", "md:table-cell"] : "",
                                             column.width,
                                             getTextAlignClass(column.align),
                                             getTextColorClass(column.color),

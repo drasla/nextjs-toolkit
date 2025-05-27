@@ -330,13 +330,11 @@ const Input = forwardRef(function Input(
     return (
         <div className={twMerge(["relative", fullWidth && "w-full", className])}>
             <fieldset className={fieldsetClassName}>
-                {/* legend는 위치만 잡는 용도로 사용 */}
-                {isActive && (
-                    <legend className={legendClassName}>{label ? label : "\u200B"}</legend>
+                {isActive && label && (
+                    <legend className={legendClassName}>{label}</legend>
                 )}
             </fieldset>
 
-            {/* 실제 입력 영역 */}
             <div className={innerContainerClassName}>
                 {prefix && <div>{prefix}</div>}
                 <input
