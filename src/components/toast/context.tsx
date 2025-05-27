@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { THEME_COLOR } from "../../index";
 import { getThemeColorBackground } from "../functions";
