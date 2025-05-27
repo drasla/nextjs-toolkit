@@ -12,6 +12,14 @@ export function getComponentSizeClass(size?: THEME_SIZE): string {
     }
 }
 
-export function getThemeColorBackground(color?: THEME_COLOR): string {
+export function getBackgroundColorClass(color?: THEME_COLOR): string {
     return `bg-${color}-main`;
+}
+
+export function getTextAlignClass(align?: "left" | "center" | "right"): string {
+    return `text-${align}`;
+}
+
+export function getTextColorClass(color?: THEME_COLOR) {
+    return `text-${color}-main`;
 }

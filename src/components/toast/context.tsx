@@ -3,7 +3,7 @@
 import { createContext, useContext, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { THEME_COLOR } from "../../index";
-import { getThemeColorBackground } from "../functions";
+import { getBackgroundColorClass } from "../functions";
 
 const ToastContext = createContext<(msg: string) => void>(() => {});
 
@@ -32,7 +32,7 @@ export const ToastProvider = () => {
                         key={toast.id}
                         className={twMerge(
                             ["px-4", "py-2", "rounded-md"],
-                            getThemeColorBackground(toast.color),
+                            getBackgroundColorClass(toast.color),
                         )}>
                         {toast.message}
                     </div>
