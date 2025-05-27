@@ -60,9 +60,9 @@
     --color-info-dark: rgba(0, 150, 136, 1);
     --color-info-contrast: rgba(255, 255, 255, 1);
 
-    --color-disabled-main: rgba(200, 200, 200, 1);
-    --color-disabled-light: rgba(240, 240, 240, 1);
-    --color-disabled-dark: rgba(160, 160, 160, 1);
+    --color-disabled-main: rgb(147, 147, 147);
+    --color-disabled-light: rgb(201, 201, 201);
+    --color-disabled-dark: rgb(101, 101, 101);
     --color-disabled-contrast: rgba(255, 255, 255, 1);
 }
 
