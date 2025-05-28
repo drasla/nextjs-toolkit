@@ -101,7 +101,7 @@ const Select = forwardRef(function Select(
 
     const fieldsetClassName = twMerge(
         ["absolute", "inset-0"],
-        ["rounded-lg", "border", "border-disabled-main"],
+        ["rounded-lg", "border", "theme-border"],
         ["transition-colors", "pointer-events-none"],
         isFocused ? "border-primary-main" : "",
         error ? "border-error-main" : "",

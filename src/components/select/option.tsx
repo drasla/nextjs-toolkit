@@ -2,6 +2,7 @@ import { OptionProps } from "./_types";
 import { useContext } from "react";
 import { SelectContext } from "./context";
 import { twMerge } from "tailwind-merge";
+import { TbCircleCheck } from "react-icons/tb";
 
 function Option({ value, className, children }: OptionProps) {
     const { onChange, selectedValue } = useContext(SelectContext);
@@ -16,12 +17,15 @@ function Option({ value, className, children }: OptionProps) {
         <div
             onClick={handleClick}
             className={twMerge(
-                ["px-4", "py-2", "cursor-pointer", "transition-colors"],
+                ["px-4", "py-2", "cursor-pointer"],
+                ["flex", "items-center", "gap-2", "justify-between"],
                 ["hover:bg-disabled-light", "active:bg-disabled-main"],
-                isSelected && ["bg-primary-light", "text-primary-main"],
+                ["transition-colors", "duration-300"],
+                isSelected && ["bg-primary-main", "text-primary-contrast"],
                 className,
             )}>
-            {children}
+            <div className={twMerge("flex-1")}>{children}</div>
+            {isSelected && <TbCircleCheck size={24} />}
         </div>
     );
 }
