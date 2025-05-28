@@ -50,14 +50,14 @@ function Pagination({ page, size, total, className = "", variant = "rounded" }: 
                 key={p.toString()}
                 onClick={() => p !== page && handlePageChange(p)}
                 className={twMerge(baseItemClass, p === page && activeClass)}>
-                {p}
+                {p + 1}
             </span>
         );
     };
 
     const renderNavButton = (type: "prev" | "next") => {
         const isPrev = type === "prev";
-        const disabled = isPrev ? page <= 1 : page >= total;
+        const disabled = isPrev ? page <= 0 : page >= total - 1;
 
         return (
             <button

@@ -1,6 +1,6 @@
 export function getVisiblePages(page: number, total: number, maxVisible: number) {
     if (total <= maxVisible) {
-        return Array.from({ length: total }, (_, i) => i + 1);
+        return Array.from({ length: total }, (_, i) => i);
     }
 
     const pages: (number | string)[] = [];
@@ -10,7 +10,7 @@ export function getVisiblePages(page: number, total: number, maxVisible: number)
     const showLeftEllipsis = page > sideCount + 2;
     const showRightEllipsis = page < total - sideCount - 1;
 
-    pages.push(1);
+    pages.push(0);
 
     if (showLeftEllipsis) {
         pages.push("...");
@@ -27,7 +27,7 @@ export function getVisiblePages(page: number, total: number, maxVisible: number)
         pages.push("...");
     }
 
-    pages.push(total);
+    pages.push(total - 1);
 
     return pages;
 }
