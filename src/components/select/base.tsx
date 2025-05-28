@@ -44,7 +44,7 @@ const Select = forwardRef(function Select(
     const { isOpen, toggle, renderMenu, anchorRef } = useDropdown<HTMLDivElement>({
         horizontal: "left",
         vertical: "bottom",
-        className: twMerge(["w-full", menuClassName]),
+        className: twMerge([menuClassName]),
         offset: { y: 2 },
     });
 

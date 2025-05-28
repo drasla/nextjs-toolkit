@@ -2,7 +2,7 @@
 
 import React, { ReactNode, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { MenuContext } from "./menu";
+import { MenuContext } from "../menu/menu";
 import { twMerge } from "tailwind-merge";
 
 type HorizontalAlign = "left" | "right" | "center";
@@ -33,7 +33,7 @@ export function useDropdown<T extends HTMLElement = HTMLElement>({
     const internalAnchorRef = useRef<T>(null);
     const effectiveAnchorRef = externalAnchorRef || internalAnchorRef;
 
-    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0, width: 0 });
     const resizeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
     const open = useCallback((event?: React.MouseEvent<HTMLElement>) => {
@@ -66,18 +66,16 @@ export function useDropdown<T extends HTMLElement = HTMLElement>({
 
         if (anchorElement) {
             const rect = anchorElement.getBoundingClientRect();
-            let menuWidth: number;
+            let menuWidth: number = rect.width;
             let menuHeight: number;
 
             if (menuRef.current) {
-                menuWidth = menuRef.current.offsetWidth;
                 menuHeight = menuRef.current.offsetHeight;
             } else {
                 const dummyMenu = document.createElement("div");
                 dummyMenu.className = twMerge(["absolute", "min-w-[10rem]", "py-1", className]);
                 dummyMenu.style.visibility = "hidden";
                 document.body.appendChild(dummyMenu);
-                menuWidth = dummyMenu.offsetWidth;
                 menuHeight = dummyMenu.offsetHeight;
                 document.body.removeChild(dummyMenu);
             }
@@ -118,7 +116,7 @@ export function useDropdown<T extends HTMLElement = HTMLElement>({
                 top = rect.bottom + window.scrollY + (offset.y || 0);
             }
 
-            setMenuPosition({ top, left });
+            setMenuPosition({ top, left, width: menuWidth });
             setIsPositionCalculated(true);
         }
     }, [anchor, horizontal, vertical, offset.x, offset.y, effectiveAnchorRef, className]);
@@ -189,6 +187,7 @@ export function useDropdown<T extends HTMLElement = HTMLElement>({
                         style={{
                             top: `${menuPosition.top}px`,
                             left: `${menuPosition.left}px`,
+                            width: `${menuPosition.width}px`,
                             transition: "top 0.2s ease, left 0.2s ease",
                         }}
                         className={twMerge(
