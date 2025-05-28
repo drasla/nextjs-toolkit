@@ -1,4 +1,4 @@
-import { THEME_COLOR } from "@drasla/nextjs-toolkit";
+import { THEME_COLOR } from "./theme";
 
 export type EnumMeta<T extends string> = {
     label: string;
