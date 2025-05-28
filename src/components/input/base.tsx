@@ -15,7 +15,7 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 import { getComponentSizeClass, getTextAlignClass } from "../functions";
-import { THEME_COLOR, THEME_SIZE } from "../../index";
+import { THEME_COLOR, THEME_SIZE } from "../../types";
 
 export type InputProps = {
     className?: string;

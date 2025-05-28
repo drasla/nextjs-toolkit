@@ -32,7 +32,7 @@ export function ApolloProvider({ children }: PropsWithChildren) {
             setClient(newClient);
         }
 
-        initializeApollo();
+        initializeApollo().then(() => {});
     }, []);
 
     if (!client) return children;

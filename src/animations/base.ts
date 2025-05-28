@@ -1,4 +1,4 @@
-import { THEME_COLOR } from "../index";
+import { THEME_COLOR } from "../types";
 
 const validColorStyle: THEME_COLOR[] = [
     "primary",

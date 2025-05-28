@@ -1,8 +1,8 @@
 import { CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
-import { THEME_COLOR } from "../../index";
 import { TbX } from "react-icons/tb";
 import { getColor } from "../base";
+import { THEME_COLOR } from "../../types";
 
 type Props = {
     className?: string;

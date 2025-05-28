@@ -138,7 +138,6 @@ export function Tooltip({
         }
     }, [open, onOpenChange]);
 
-    // 윈도우 리사이즈나 스크롤 시 위치 재계산
     useEffect(() => {
         if (isVisible) {
             const handleResize = () => {

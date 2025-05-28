@@ -11,6 +11,7 @@ export * from "./components/accordion";
 export * from "./components/backdrop";
 export * from "./components/breadcrumb";
 export * from "./components/button";
+export * from "./components/chip";
 export * from "./components/input";
 export * from "./components/menu";
 export * from "./components/modal";
@@ -39,19 +40,5 @@ export * from "./constants/env";
 // Animations
 export * from "./animations";
 
-// Theme 관련 Type 정의
-export type THEME_COLOR =
-    | "primary"
-    | "secondary"
-    | "success"
-    | "error"
-    | "warning"
-    | "info"
-    | "disabled";
-export type BUTTON_VARIANT = "outlined" | "filled" | "text";
-export type THEME_SIZE = "small" | "medium" | "large";
-
-// Server Actino 관련 Type 정의
-export type ActionOutput = {
-    error?: string;
-};
+// Types
+export * from "./types";

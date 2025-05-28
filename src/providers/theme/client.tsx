@@ -1,17 +1,16 @@
 "use client";
 
 import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
-
-type Theme = "light" | "dark";
+import { THEME_VARIANT } from "../../types";
 
 interface ThemeContextType {
-    theme: Theme;
+    theme: THEME_VARIANT;
     setTheme: () => void;
     isDark: boolean;
 }
 
-let currentTheme: Theme = "light";
-const listeners = new Set<(theme: Theme) => void>();
+let currentTheme: THEME_VARIANT = "light";
+const listeners = new Set<(theme: THEME_VARIANT) => void>();
 
 function toggleGlobalTheme() {
     currentTheme = currentTheme === "light" ? "dark" : "light";
@@ -22,7 +21,7 @@ function toggleGlobalTheme() {
         document.documentElement.classList.remove("dark");
     }
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
         localStorage.setItem("theme", currentTheme);
     }
 
@@ -32,12 +31,12 @@ function toggleGlobalTheme() {
 export const ThemeContext = createContext<ThemeContextType>({
     theme: currentTheme,
     setTheme: toggleGlobalTheme,
-    isDark: false
+    isDark: false,
 });
 
 export function ThemeStateProvider() {
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") as Theme | null;
+        const savedTheme = localStorage.getItem("theme") as THEME_VARIANT | null;
 
         if (savedTheme) {
             currentTheme = savedTheme;
@@ -72,10 +71,10 @@ export function ThemeStateProvider() {
 }
 
 export function ThemeUIProvider({ children }: PropsWithChildren) {
-    const [theme, setTheme] = useState<Theme>(currentTheme);
+    const [theme, setTheme] = useState<THEME_VARIANT>(currentTheme);
 
     useEffect(() => {
-        const handleThemeChange = (newTheme: Theme) => {
+        const handleThemeChange = (newTheme: THEME_VARIANT) => {
             setTheme(newTheme);
         };
 
@@ -91,14 +90,10 @@ export function ThemeUIProvider({ children }: PropsWithChildren) {
     const themeContextValue = {
         theme,
         setTheme: toggleGlobalTheme,
-        isDark: theme === "dark"
+        isDark: theme === "dark",
     };
 
-    return (
-        <ThemeContext.Provider value={themeContextValue}>
-            {children}
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={themeContextValue}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

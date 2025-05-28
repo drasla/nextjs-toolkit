@@ -23,3 +23,7 @@ export function getTextAlignClass(align?: "left" | "center" | "right"): string {
 export function getTextColorClass(color?: THEME_COLOR) {
     return `text-${color}-main`;
 }
+
+export function getTextContrastColorClass(color?: THEME_COLOR): string {
+    return `text-${color}-contrast`;
+}

@@ -2,7 +2,8 @@
 
 import { MouseEvent, useRef } from "react";
 import { twMerge } from "tailwind-merge";
-import { THEME_COLOR } from "../../index";
+import { THEME_COLOR } from "../../types";
+import { getBackgroundColorClass } from "../../components/functions";
 
 function useRipple<T extends HTMLElement>(color?: THEME_COLOR) {
     const containerRef = useRef<T>(null);
@@ -18,7 +19,7 @@ function useRipple<T extends HTMLElement>(color?: THEME_COLOR) {
         circle.style.width = circle.style.height = `${diameter}px`;
         circle.style.left = `${e.clientX - container.getBoundingClientRect().left - radius}px`;
         circle.style.top = `${e.clientY - container.getBoundingClientRect().top - radius}px`;
-        circle.className = twMerge("ripple", getColorClass(color));
+        circle.className = twMerge("ripple", getBackgroundColorClass(color));
 
         const ripple = container.getElementsByClassName("ripple")[0];
         if (ripple) {
@@ -31,22 +32,3 @@ function useRipple<T extends HTMLElement>(color?: THEME_COLOR) {
 }
 
 export default useRipple;
-
-const getColorClass = (color?: THEME_COLOR) => {
-    switch (color) {
-        case "primary":
-            return "bg-primary-dark";
-        case "secondary":
-            return "bg-secondary-dark";
-        case "success":
-            return "bg-success-dark";
-        case "warning":
-            return "bg-warning-dark";
-        case "error":
-            return "bg-error-dark";
-        case "info":
-            return "bg-info-dark";
-        default:
-            return "bg-black";
-    }
-};

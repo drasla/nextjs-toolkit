@@ -3,8 +3,8 @@
 import { DocumentNode, OperationVariables } from "@apollo/client";
 import { cookies } from "next/headers";
 import { getClient, GraphQLActionResult } from "./fetch";
-import { ConfigConstants } from "../../constants/env/configConstants";
-import { ErrorConstants } from "../../constants/env/errorConstants";
+import { ConfigConstants } from "../../constants/env";
+import { ErrorConstants } from "../../constants/env";
 
 type OperationType = "query" | "mutation";
 

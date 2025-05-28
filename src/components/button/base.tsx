@@ -4,9 +4,9 @@ import { ButtonHTMLAttributes, MouseEventHandler, PropsWithChildren, forwardRef,
 import dynamic from "next/dynamic";
 import { twMerge } from "tailwind-merge";
 import ButtonServerSide from "./serverSide";
-import { BUTTON_VARIANT, THEME_COLOR, THEME_SIZE } from "../../index";
 import useRipple from "../../hooks/useRipple/base";
 import { getComponentSizeClass } from "../functions";
+import { BUTTON_VARIANT, THEME_COLOR, THEME_SIZE } from "../../types";
 
 export type ButtonProps = {
     className?: string;
