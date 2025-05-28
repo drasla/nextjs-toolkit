@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { StepperStep } from "../src/components/stepper/base";
 import { Pagination, Stepper } from "../src";
-import { SearchParams } from "next/dist/server/request/search-params";
 import { useSearchParams } from "next/navigation";
+import Select from "../src/components/select/base";
+import Option from "../src/components/select/option";
 
 const steps: StepperStep[] = [
     { label: "배송지 정보", optional: true, optionalLabel: "선택 사항" },
@@ -14,6 +15,8 @@ const steps: StepperStep[] = [
 
 function ClientTestBox() {
     const [activeStep, setActiveStep] = useState(0);
+    const [selectValue, setSelectValue] = useState("");
+
     const searchParams = useSearchParams();
 
     const handleNext = () => {
@@ -38,6 +41,17 @@ function ClientTestBox() {
             />
 
             <Stepper steps={steps} activeStep={activeStep} />
+
+            <Select
+                label="옵션선택"
+                value={selectValue}
+                onChange={setSelectValue}
+                placeholder="옵션을 선택하세요"
+                fullWidth={true}>
+                <Option value={"option1"}>옵션 1</Option>
+                <Option value="option2">옵션 2</Option>
+                <Option value="option3">옵션 3</Option>
+            </Select>
 
             <div className="mt-8">
                 {activeStep === steps.length - 1 ? (

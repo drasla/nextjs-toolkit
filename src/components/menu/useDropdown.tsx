@@ -17,7 +17,7 @@ type UseMenuProps<T extends HTMLElement = HTMLElement> = {
     anchorRef?: RefObject<T>;
 };
 
-export function useMenu<T extends HTMLElement = HTMLElement>({
+export function useDropdown<T extends HTMLElement = HTMLElement>({
     horizontal = "left",
     vertical = "bottom",
     className,

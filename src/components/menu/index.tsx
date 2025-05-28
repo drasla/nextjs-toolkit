@@ -1,6 +1,6 @@
 import { Menu } from "./menu";
 import { MenuItem } from "./menuItem";
 import { MenuDivider } from "./menuDivider";
-import { useMenu } from "./useMenu";
+import { useDropdown } from "./useDropdown";
 
-export { Menu, MenuItem, MenuDivider, useMenu };
+export { Menu, MenuItem, MenuDivider, useDropdown };
