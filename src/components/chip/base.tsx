@@ -7,7 +7,7 @@ function Chip<T extends string>({ meta, getMeta, className }: ChipProps<T>) {
 
     const classes = twMerge(
         ["px-2.5", "py-0.5", "rounded-full", "text-sm", "font-medium"],
-        ["flex", "items-center"],
+        ["inline-flex", "items-center"],
         getBackgroundColorClass(color),
         getTextContrastColorClass(color),
         className,
