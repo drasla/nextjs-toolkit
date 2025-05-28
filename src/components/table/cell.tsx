@@ -14,13 +14,14 @@ function TableCell<T>({ column, value, item }: Props<T>) {
         column.tooltip &&
         (typeof column.tooltip === "function" ? column.tooltip(item) : column.tooltip);
     const cellContent = column.render ? column.render(value, item) : String(value);
+    const cellAlign = column.bodyAlign || column.align || "left";
 
     const baseClass = twMerge(["px-4", "py-2"], ["border-b", "theme-border"]);
     const cellClass = twMerge(
         baseClass,
         column.disableMobile ? ["hidden", "md:table-cell"] : "",
         column.width,
-        getTextAlignClass(column.align),
+        getTextAlignClass(cellAlign),
         getTextColorClass(column.color),
     );
     const contentClass = twMerge(column.ellipsis ? ["truncate", "max-w-full"] : "");

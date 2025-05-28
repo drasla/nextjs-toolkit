@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { StepperStep } from "../src/components/stepper/base";
 import { Pagination, Stepper } from "../src";
+import { SearchParams } from "next/dist/server/request/search-params";
+import { useSearchParams } from "next/navigation";
 
 const steps: StepperStep[] = [
     { label: "배송지 정보", optional: true, optionalLabel: "선택 사항" },
@@ -12,7 +14,7 @@ const steps: StepperStep[] = [
 
 function ClientTestBox() {
     const [activeStep, setActiveStep] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
+    const searchParams = useSearchParams();
 
     const handleNext = () => {
         setActiveStep(prevStep => Math.min(prevStep + 1, steps.length - 1));
@@ -29,14 +31,11 @@ function ClientTestBox() {
     return (
         <div className="w-full max-w-4xl mx-auto p-6">
             <Pagination
-                page={currentPage}
+                page={Number(searchParams.get("page")) || 1}
                 size={10}
                 total={88900}
-                onPageChange={(p) => setCurrentPage(p)}
                 variant="square"
             />
-
-
 
             <Stepper steps={steps} activeStep={activeStep} />
 

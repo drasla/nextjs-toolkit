@@ -43,6 +43,8 @@ export type TableConfig<T> = {
     width?: string;
     color?: THEME_COLOR;
     align?: "left" | "right" | "center";
+    headerAlign?: "left" | "right" | "center";
+    bodyAlign?: "left" | "right" | "center";
     tooltip?: string | ((item: T) => string);
     disableMobile?: boolean;
     render?: (value: any, item: T) => ReactNode;

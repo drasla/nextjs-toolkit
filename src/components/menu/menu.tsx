@@ -57,7 +57,6 @@ export function Menu({ children, trigger, align = "left", className }: MenuProps
         };
     }, [onClose]);
 
-    // 메뉴 위치 계산
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
 
     useEffect(() => {

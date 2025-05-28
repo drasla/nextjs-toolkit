@@ -1,28 +1,32 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
 import { PaginationProps } from "./_types";
 import Decimal from "decimal.js";
 import { getVisiblePages } from "./_utils";
 import { TbChevronLeft, TbChevronRight, TbDots } from "react-icons/tb";
 import { useResponsiveView } from "../../hooks/useResponsiveView";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-function Pagination({
-    page,
-    size,
-    total,
-    onPageChange,
-    className = "",
-    variant = "rounded",
-}: PaginationProps) {
+function Pagination({ page, size, total, className = "", variant = "rounded" }: PaginationProps) {
     const showCompact = useResponsiveView();
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     const totalPages = new Decimal(total).div(size).ceil().toNumber();
+
+    const handlePageChange = (page: number) => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.set("page", page.toString());
+        router.push(`${pathname}?${params.toString()}`);
+    };
 
     const baseItemClass = twMerge(
         ["w-9", "h-9", "mx-1"],
         ["flex", "justify-center", "items-center"],
         ["text-sm"],
         ["select-none", "cursor-pointer"],
-        ["transition-colors", "duration-200"],
         variant === "rounded" ? "rounded-full" : "rounded-md",
     );
 
@@ -44,7 +48,7 @@ function Pagination({
         return (
             <span
                 key={p.toString()}
-                onClick={() => p !== page && onPageChange(p)}
+                onClick={() => p !== page && handlePageChange(p)}
                 className={twMerge(baseItemClass, p === page && activeClass)}>
                 {p}
             </span>
@@ -57,7 +61,7 @@ function Pagination({
 
         return (
             <button
-                onClick={() => !disabled && onPageChange(isPrev ? page - 1 : page + 1)}
+                onClick={() => !disabled && handlePageChange(isPrev ? page - 1 : page + 1)}
                 disabled={disabled}
                 className={twMerge(
                     ["px-1"],

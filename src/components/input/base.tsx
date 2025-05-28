@@ -14,7 +14,7 @@ import {
     ReactNode,
 } from "react";
 import { twMerge } from "tailwind-merge";
-import { getComponentSizeClass } from "../functions";
+import { getComponentSizeClass, getTextAlignClass } from "../functions";
 import { THEME_COLOR, THEME_SIZE } from "../../index";
 
 export type InputProps = {
@@ -118,7 +118,6 @@ const Input = forwardRef(function Input(
         },
     };
 
-    // 기존 handler 유지
     const handler = {
         onFocus: (_: FocusEvent<HTMLInputElement>) => {
             setIsFocused(true);
@@ -302,7 +301,7 @@ const Input = forwardRef(function Input(
     const isActive = isFocused || value !== "" || !!prefix;
 
     const fieldsetClassName = twMerge(
-        ["absolute", "inset-0", "rounded-lg", "border"],
+        ["absolute", "inset-0", "rounded-lg", "border", "border-disabled-main"],
         ["transition-colors", "pointer-events-none"],
         isFocused ? "border-primary-main" : "",
         error ? "border-error-main" : "",
@@ -310,13 +309,11 @@ const Input = forwardRef(function Input(
 
     const legendClassName = twMerge(["invisible", "ml-2.5", "px-0.5", "h-0"]);
 
-    // 내부 컨테이너 클래스
     const innerContainerClassName = twMerge(
         ["flex", "items-center", "gap-3", "px-3"],
         getComponentSizeClass(size),
     );
 
-    // 플로팅 레이블 클래스
     const floatingLabelClassName = twMerge(
         ["absolute", "left-3", "px-1"],
         ["pointer-events-none", "transition-all", "duration-200"],
@@ -330,9 +327,7 @@ const Input = forwardRef(function Input(
     return (
         <div className={twMerge(["relative", fullWidth && "w-full", className])}>
             <fieldset className={fieldsetClassName}>
-                {isActive && label && (
-                    <legend className={legendClassName}>{label}</legend>
-                )}
+                {isActive && label && <legend className={legendClassName}>{label}</legend>}
             </fieldset>
 
             <div className={innerContainerClassName}>
@@ -348,11 +343,10 @@ const Input = forwardRef(function Input(
                     }}
                     className={twMerge(
                         ["flex-1", "outline-none", "bg-transparent", "z-1"],
-                        textAlign === "center" && "text-center",
-                        textAlign === "right" && "text-right",
+                        getTextAlignClass(textAlign),
                     )}
                     type={type}
-                    placeholder={placeholder}
+                    placeholder={label && !isFocused ? undefined : placeholder}
                     onFocusCapture={e => {
                         if (!shrink) handler.onFocus(e);
                     }}

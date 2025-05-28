@@ -12,20 +12,24 @@ function TableHeader<T>({ config }: Props<T>) {
     return (
         <thead>
             <tr>
-                {config.map((column, index) => (
-                    <th
-                        key={index}
-                        className={twMerge(
-                            baseClass,
-                            ["text-xs", "md:text-sm"],
-                            column.disableMobile ? ["hidden", "md:table-cell"] : "",
-                            column.width,
-                            getTextAlignClass(column.align),
-                            getTextColorClass(column.color),
-                        )}>
-                        {column.header}
-                    </th>
-                ))}
+                {config.map((column, index) => {
+                    const align = column.headerAlign || column.align || "center";
+
+                    return (
+                        <th
+                            key={index}
+                            className={twMerge(
+                                baseClass,
+                                ["text-xs", "md:text-sm"],
+                                column.disableMobile ? ["hidden", "md:table-cell"] : "",
+                                column.width,
+                                getTextAlignClass(align),
+                                getTextColorClass(column.color),
+                            )}>
+                            {column.header}
+                        </th>
+                    );
+                })}
             </tr>
         </thead>
     );
