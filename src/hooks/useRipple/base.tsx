@@ -3,7 +3,7 @@
 import { MouseEvent, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { THEME_COLOR } from "../../types";
-import { getBackgroundColorClass } from "../../components/functions";
+import { getBackgroundColorClass } from "../../components/func_style";
 
 function useRipple<T extends HTMLElement>(color?: THEME_COLOR) {
     const containerRef = useRef<T>(null);

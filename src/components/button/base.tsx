@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { twMerge } from "tailwind-merge";
 import ButtonServerSide from "./serverSide";
 import useRipple from "../../hooks/useRipple/base";
-import { getComponentSizeClass } from "../functions";
+import { getComponentSizeClass } from "../func_style";
 import { BUTTON_VARIANT, THEME_COLOR, THEME_SIZE } from "../../types";
 
 export type ButtonProps = {

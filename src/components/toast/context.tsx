@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { getBackgroundColorClass } from "../functions";
+import { getBackgroundColorClass } from "../func_style";
 import { THEME_COLOR } from "../../types";
 
 const ToastContext = createContext<(msg: string) => void>(() => {});

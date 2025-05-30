@@ -1,6 +1,6 @@
 import { TableProps } from "./_types";
 import { twMerge } from "tailwind-merge";
-import { getTextAlignClass, getTextColorClass } from "../functions";
+import { getTextAlignClass, getTextColorClass } from "../func_style";
 import { Tooltip } from "../tooltip";
 
 type Props<T> = {

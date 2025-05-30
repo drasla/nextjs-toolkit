@@ -14,7 +14,7 @@ import React, {
 import { SelectProps } from "./_types";
 import { useDropdown } from "../menu";
 import { twMerge } from "tailwind-merge";
-import { getComponentSizeClass } from "../functions";
+import { getComponentSizeClass } from "../func_style";
 import { SelectContext } from "./context";
 import { TbChevronDown } from "react-icons/tb";
 

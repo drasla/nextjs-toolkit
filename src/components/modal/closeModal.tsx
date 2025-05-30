@@ -25,11 +25,11 @@ function CloseModal({
     return (
         <Modal onClose={onClose} open={open}>
             <div className={twMerge(["p-6"], ["flex", "flex-col", "space-y-4"], ["text-center"])}>
-                <div className={twMerge("mb-4")}>
+                <div className={twMerge("mb-4", ["flex", "justify-center"])}>
                     {type === "success" ? (
-                        <SuccessAnimation width={80} height={80} />
+                        <SuccessAnimation width={120} height={120} />
                     ) : (
-                        <ErrorAnimation width={80} height={80} />
+                        <ErrorAnimation width={120} height={120} />
                     )}
                 </div>
 

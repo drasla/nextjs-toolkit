@@ -9,10 +9,12 @@ import {
     useState,
 } from "react";
 import { twMerge } from "tailwind-merge";
+import { getScrollbarWidth } from "../func_style";
 
 export type BackdropProps = {
     disableEscapeKey?: boolean;
     disableBackdrop?: boolean;
+    disableScrollLock?: boolean;
     open: boolean;
     onClose: VoidFunction;
 } & PropsWithChildren;
@@ -20,6 +22,7 @@ export type BackdropProps = {
 export function Backdrop({
     disableEscapeKey = false,
     disableBackdrop,
+    disableScrollLock = false,
     open,
     onClose,
     children,
@@ -27,6 +30,21 @@ export function Backdrop({
     const [isVisible, setIsVisible] = useState(false);
     const [isOpacity, setIsOpacity] = useState(false);
     const initialRender = useRef(true);
+
+    const originalScrollPosition = useRef(0);
+    const originalBodyStyle = useRef<{
+        overflow: string;
+        position: string;
+        top: string;
+        width: string;
+        paddingRight: string;
+    }>({
+        overflow: "",
+        position: "",
+        top: "",
+        width: "",
+        paddingRight: "",
+    });
 
     useEffect(() => {
         if (open) {
@@ -54,6 +72,60 @@ export function Backdrop({
             }
         }
     }, [open]);
+
+    useEffect(() => {
+        if (disableScrollLock) return;
+
+        if (open) {
+            originalScrollPosition.current = window.scrollY;
+            const body = document.body;
+
+            originalBodyStyle.current = {
+                overflow: body.style.overflow,
+                position: body.style.position,
+                top: body.style.top,
+                width: body.style.width,
+                paddingRight: body.style.paddingRight,
+            };
+
+            const hasScrollbar = document.documentElement.scrollHeight > window.innerHeight;
+
+            if (hasScrollbar) {
+                const scrollbarWidth = getScrollbarWidth();
+
+                const computedStyle = window.getComputedStyle(body);
+                const currentPaddingRight = parseInt(computedStyle.paddingRight) || 0;
+
+                body.style.paddingRight = `${currentPaddingRight + scrollbarWidth}px`;
+            }
+
+            body.style.overflow = "hidden";
+            body.style.position = "fixed";
+            body.style.top = `-${originalScrollPosition.current}px`;
+            body.style.width = "100%";
+        } else {
+            const body = document.body;
+            body.style.overflow = originalBodyStyle.current.overflow;
+            body.style.position = originalBodyStyle.current.position;
+            body.style.top = originalBodyStyle.current.top;
+            body.style.width = originalBodyStyle.current.width;
+            body.style.paddingRight = originalBodyStyle.current.paddingRight;
+
+            window.scrollTo(0, originalScrollPosition.current);
+        }
+
+        return () => {
+            if (open && !disableScrollLock) {
+                const body = document.body;
+                body.style.overflow = "";
+                body.style.position = "";
+                body.style.top = "";
+                body.style.width = "";
+
+                window.scrollTo(0, originalScrollPosition.current);
+            }
+        };
+    }, [open, disableScrollLock]);
 
     const onEscPress = useCallback(
         (e: KeyboardEvent) => {

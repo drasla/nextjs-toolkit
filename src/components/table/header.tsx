@@ -1,6 +1,6 @@
 import { TableConfig } from "./_types";
 import { twMerge } from "tailwind-merge";
-import { getTextAlignClass, getTextColorClass } from "../functions";
+import { getTextAlignClass, getTextColorClass } from "../func_style";
 
 type Props<T> = {
     config: TableConfig<T>[];

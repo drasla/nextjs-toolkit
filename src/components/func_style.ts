@@ -27,3 +27,20 @@ export function getTextColorClass(color?: THEME_COLOR) {
 export function getTextContrastColorClass(color?: THEME_COLOR): string {
     return `text-${color}-contrast`;
 }
+
+export function getScrollbarWidth(): number {
+    if (typeof window === "undefined") return 0;
+
+    const outer = document.createElement("div");
+    outer.style.visibility = "hidden";
+    outer.style.overflow = "scroll";
+    document.body.appendChild(outer);
+
+    const inner = document.createElement("div");
+    outer.appendChild(inner);
+
+    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+    outer.parentNode?.removeChild(outer);
+
+    return scrollbarWidth;
+}

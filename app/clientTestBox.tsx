@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { StepperStep } from "../src/components/stepper/base";
-import { Pagination, Stepper } from "../src";
+import { Backdrop, Button, CloseModal, Pagination, Stepper } from "../src";
 import { useSearchParams } from "next/navigation";
 import Select from "../src/components/select/base";
 import Option from "../src/components/select/option";
+import { twMerge } from "tailwind-merge";
 
 const steps: StepperStep[] = [
     { label: "배송지 정보", optional: true, optionalLabel: "선택 사항" },
@@ -16,6 +17,7 @@ const steps: StepperStep[] = [
 function ClientTestBox() {
     const [activeStep, setActiveStep] = useState(0);
     const [selectValue, setSelectValue] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
 
     const searchParams = useSearchParams();
 
@@ -83,6 +85,13 @@ function ClientTestBox() {
                     </div>
                 )}
             </div>
+            <Button onClick={() => setModalOpen(!modalOpen)}>모달오픈</Button>
+            <div className={twMerge("h-dvh", "bg-primary-main", "text-primary-contrast")}>
+                모달용 박스
+            </div>
+            <Backdrop onClose={() => setModalOpen(!modalOpen)} open={modalOpen}>
+                <div>모달내용</div>
+            </Backdrop>
         </div>
     );
 }
