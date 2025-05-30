@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { StepperStep } from "../src/components/stepper/base";
-import { Backdrop, Button, CloseModal, Pagination, Stepper } from "../src";
+import { Backdrop, Button, Pagination, Stepper } from "../src";
 import { useSearchParams } from "next/navigation";
 import Select from "../src/components/select/base";
 import Option from "../src/components/select/option";

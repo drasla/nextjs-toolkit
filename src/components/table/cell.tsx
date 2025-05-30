@@ -16,7 +16,7 @@ function TableCell<T>({ column, value, item }: Props<T>) {
     const cellContent = column.render ? column.render(value, item) : String(value);
     const cellAlign = column.bodyAlign || column.align || "left";
 
-    const baseClass = twMerge(["px-4", "py-2"], ["border-b", "theme-border"]);
+    const baseClass = twMerge(["px-4", "py-2", "min-h-12"], ["border-b", "theme-border"]);
     const cellClass = twMerge(
         baseClass,
         column.disableMobile ? ["hidden", "md:table-cell"] : "",
@@ -24,7 +24,10 @@ function TableCell<T>({ column, value, item }: Props<T>) {
         getTextAlignClass(cellAlign),
         getTextColorClass(column.color),
     );
-    const contentClass = twMerge(column.ellipsis ? ["truncate", "max-w-full"] : "");
+    const contentClass = twMerge(
+        ["min-h-7.5", "flex", "items-center"],
+        column.ellipsis ? ["truncate", "max-w-full"] : "",
+    );
 
     return (
         <td className={cellClass}>
