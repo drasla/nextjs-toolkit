@@ -24,6 +24,7 @@ export * from "./components/toast";
 export * from "./components/tooltip";
 
 // hooks
+export * from "./hooks/useAutoResizeTextarea";
 export * from "./hooks/useMediaQuery";
 export * from "./hooks/useResponsiveView";
 export * from "./hooks/useRipple";
