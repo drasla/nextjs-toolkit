@@ -31,7 +31,7 @@ export type TableConfig<T> = {
     align?: "left" | "right" | "center";
     headerAlign?: "left" | "right" | "center";
     bodyAlign?: "left" | "right" | "center";
-    tooltip?: string | ((item: T) => string);
+    tooltip?: ((item: T) => string);
     disableMobile?: boolean;
     render?: (value: any, item: T) => ReactNode;
     ellipsis?: boolean;
