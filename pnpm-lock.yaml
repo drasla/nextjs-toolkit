@@ -14,6 +14,9 @@ importers:
       '@apollo/client-integration-nextjs':
         specifier: ^0.12.2
         version: 0.12.2(@apollo/client@3.13.8(@types/react@19.1.5)(graphql-ws@6.0.5(graphql@16.11.0)(ws@8.18.2))(graphql@16.11.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.1.5)(graphql@16.11.0)(next@15.3.2(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       decimal.js:
         specifier: ^10.5.0
         version: 10.5.0
@@ -1564,6 +1567,9 @@ packages:
 
   dataloader@2.2.3:
     resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debounce@1.2.1:
     resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
@@ -5048,6 +5054,8 @@ snapshots:
       is-data-view: 1.0.2
 
   dataloader@2.2.3: {}
+
+  dayjs@1.11.13: {}
 
   debounce@1.2.1: {}
 

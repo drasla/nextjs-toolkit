@@ -1,6 +1,6 @@
 {
     "name": "@drasla/nextjs-toolkit",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -22,6 +22,7 @@
     "dependencies": {
         "@apollo/client": "^3.13.8",
         "@apollo/client-integration-nextjs": "^0.12.2",
+        "dayjs": "^1.11.13",
         "decimal.js": "^10.5.0",
         "pbkdf2": "^3.1.2",
         "tailwind-merge": "^3.3.0"
