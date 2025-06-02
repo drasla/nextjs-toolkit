@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { StepperStep } from "../src/components/stepper/base";
-import { Backdrop, Button, Pagination, Stepper } from "../src/components";
 import { useSearchParams } from "next/navigation";
 import Select from "../src/components/select/base";
 import Option from "../src/components/select/option";
 import { twMerge } from "tailwind-merge";
+import { Backdrop, Button, Pagination, Stepper } from "../src";
 
 const steps: StepperStep[] = [
     { label: "배송지 정보", optional: true, optionalLabel: "선택 사항" },

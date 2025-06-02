@@ -28,18 +28,23 @@ function TableCell<T>({ column, value, item }: Props<T>) {
         column.width,
         getTextAlignClass(cellAlign),
         getTextColorClass(column.color),
+        column.ellipsis ? "max-w-0" : "",
     );
     const contentClass = twMerge(
         ["min-h-7.5", "flex", "items-center", "w-full"],
         getFlexJustifyClass(cellAlign),
-        column.ellipsis ? ["truncate", "max-w-full"] : "",
+        column.ellipsis ? ["truncate", "min-w-0"] : "",
     );
     const content = tooltipContent ? (
         <Tooltip content={tooltipContent}>
-            <span>{cellContent}</span>
+            <span className={twMerge(column.ellipsis ? ["truncate", "block", "w-full"] : "")}>
+                {cellContent}
+            </span>
         </Tooltip>
     ) : (
-        <span className={column.ellipsis ? "truncate" : ""}>{cellContent}</span>
+        <span className={twMerge(column.ellipsis ? ["truncate", "block", "w-full"] : "")}>
+            {cellContent}
+        </span>
     );
 
     return (
