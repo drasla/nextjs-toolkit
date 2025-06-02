@@ -1,5 +1,5 @@
-import { THEME_COLOR, THEME_SIZE } from "../index";
 import { twMerge } from "tailwind-merge";
+import { THEME_COLOR, THEME_SIZE } from "../types";
 
 export function getComponentSizeClass(size?: THEME_SIZE): string {
     switch (size) {

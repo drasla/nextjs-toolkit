@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, PropsWithChildren, ReactNode } from "react";
-import { THEME_COLOR, THEME_SIZE } from "../../index";
+import { THEME_COLOR, THEME_SIZE } from "../../types";
 
 export type SelectContextType = {
     onChange: (value: string) => void;

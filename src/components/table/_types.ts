@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from "react";
-import { THEME_COLOR } from "../../index";
+import { THEME_COLOR } from "../../types";
 
 export type NestedKeyOf<T> = {
     [K in keyof T & (string | number)]: T[K] extends object
