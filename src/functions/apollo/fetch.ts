@@ -9,6 +9,8 @@ import { setContext } from "@apollo/client/link/context";
 import { cookies } from "next/headers";
 import { ConfigConstants } from "../../constants/env";
 
+let contextToken: string | undefined;
+
 export const { getClient } = registerApolloClient(async () => {
     const { string: fnString } = await fnEnv.server();
 
@@ -21,12 +23,18 @@ export const { getClient } = registerApolloClient(async () => {
     });
 
     const authLink = setContext(async (_, { headers }) => {
-        const token = (await cookies()).get(ConfigConstants.API_TOKEN_NAME);
+        let token: string | undefined;
+        if (contextToken) {
+            token = contextToken;
+        } else {
+            const tokenCookie = (await cookies()).get(ConfigConstants.API_TOKEN_NAME);
+            token = tokenCookie?.value;
+        }
 
         return {
             headers: {
                 ...headers,
-                authorization: token ? token.value : "",
+                authorization: token || "",
             },
         };
     });
@@ -36,6 +44,14 @@ export const { getClient } = registerApolloClient(async () => {
         link: ApolloLink.from([authLink, httpLink]),
     });
 });
+
+export function setAuthToken(token: string | undefined) {
+    contextToken = token;
+}
+
+export function clearAuthToken() {
+    contextToken = undefined;
+}
 
 export type GraphQLActionResult<T> = {
     data?: T;
