@@ -17,7 +17,7 @@ function TableCell<T>({ column, value, item }: Props<T>) {
     const needsWrapper = column.ellipsis || tooltipContent;
 
     const baseClass = twMerge(
-        ["px-4", "py-2", "min-h-12", "align-middle"],
+        ["p-2", "min-h-12", "align-middle"],
         ["border-b", "theme-border"],
     );
     const cellClass = twMerge(
