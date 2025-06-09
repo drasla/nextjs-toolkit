@@ -38,7 +38,7 @@ export type TableConfig<T> = {
 };
 
 export type TableProps<T> = {
-    data: T[];
+    data?: T[];
     config: TableConfig<T>[];
     className?: string;
     onRowClick?: TableRowClickHandler<T>;
