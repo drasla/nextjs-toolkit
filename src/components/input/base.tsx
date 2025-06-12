@@ -371,7 +371,7 @@ const Input = forwardRef(function Input(
                 <div
                     className={twMerge(
                         ["text-xs", "mt-1", "px-3"],
-                        error ? "text-error-main" : "text-disabled-main",
+                        error ? "text-error-main" : "text-disabled-contrast",
                     )}>
                     {error || helperText}
                 </div>

@@ -99,7 +99,7 @@ const outlinedColorClasses: Record<string, string> = {
     warning: twMerge("border-warning-main", "text-warning-main", "border"),
     error: twMerge("border-error-main", "text-error-main", "border"),
     info: twMerge("border-info-main", "text-info-main", "border"),
-    disabled: twMerge("border-disabled-main", "text-disabled-main", "border"),
+    disabled: twMerge("border-disabled-main", "text-disabled-contrast", "border"),
 };
 
 const filledColorClasses: Record<string, string> = {
@@ -122,7 +122,7 @@ const textColorClasses: Record<string, string> = {
     warning: twMerge("text-warning-main", ["hover:text-warning-contrast", "hover:bg-warning-main"]),
     error: twMerge("text-error-main", ["hover:text-error-contrast", "hover:bg-error-main"]),
     info: twMerge("text-info-main", ["hover:text-info-contrast", "hover:bg-info-main"]),
-    disabled: twMerge("text-disabled-main", [
+    disabled: twMerge("text-disabled-contrast", [
         "hover:text-disabled-contrast",
         "hover:bg-disabled-main",
     ]),

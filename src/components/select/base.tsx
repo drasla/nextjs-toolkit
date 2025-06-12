@@ -154,7 +154,7 @@ const Select = forwardRef(function Select(
                     {selectedChild || (
                         <span
                             className={twMerge(
-                                "text-disabled-main",
+                                "text-disabled-contrast",
                                 !shouldShowPlaceholder && "opacity-0",
                             )}>
                             {placeholder || " "}

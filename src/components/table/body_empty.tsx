@@ -13,7 +13,7 @@ function TableBodyEmpty<T>({ config }: Props<T>) {
                     colSpan={config.length}
                     className={twMerge(
                         ["h-40", "align-middle"],
-                        ["text-center", "text-disabled-main"],
+                        ["text-center", "text-disabled-contrast"],
                     )}>
                     데이터가 존재하지 않습니다.
                 </td>
