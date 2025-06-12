@@ -34,6 +34,7 @@ export type InputProps = {
     textAlign?: "left" | "center" | "right";
     inputPrefix?: string;
     inputSuffix?: string;
+    helperText?: string;
 } & PropsWithChildren &
     Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "prefix">;
 
@@ -56,6 +57,7 @@ const Input = forwardRef(function Input(
         textAlign,
         inputPrefix = "",
         inputSuffix = "",
+        helperText,
         ...props
     }: InputProps,
     ref: Ref<HTMLInputElement>,
@@ -325,46 +327,55 @@ const Input = forwardRef(function Input(
     );
 
     return (
-        <div className={twMerge(["relative", fullWidth && "w-full", className])}>
-            <fieldset className={fieldsetClassName}>
-                {isActive && label && <legend className={legendClassName}>{label}</legend>}
-            </fieldset>
+        <div className={twMerge("w-full")}>
+            <div className={twMerge(["relative", fullWidth && "w-full", className])}>
+                <fieldset className={fieldsetClassName}>
+                    {isActive && label && <legend className={legendClassName}>{label}</legend>}
+                </fieldset>
 
-            <div className={innerContainerClassName}>
-                {prefix && <div>{prefix}</div>}
-                <input
-                    ref={node => {
-                        if (typeof ref === "function") {
-                            ref(node);
-                        } else if (ref) {
-                            ref.current = node;
-                        }
-                        inputRef.current = node;
-                    }}
-                    className={twMerge(
-                        ["flex-1", "outline-none", "bg-transparent", "z-1"],
-                        getTextAlignClass(textAlign),
-                    )}
-                    type={type}
-                    placeholder={label && !isFocused ? undefined : placeholder}
-                    onFocusCapture={e => {
-                        if (!shrink) handler.onFocus(e);
-                    }}
-                    onBlurCapture={shrink ? undefined : handler.onBlur}
-                    onKeyDown={handler.handleKeyDown}
-                    onKeyUp={handler.handleKeyUp}
-                    onClick={prefixSuffixUtils.enforceCursorPosition}
-                    onMouseUp={prefixSuffixUtils.enforceCursorPosition}
-                    value={displayValue}
-                    onChange={handler.handleChange}
-                    {...props}
-                />
-                {suffix && <div>{suffix}</div>}
+                <div className={innerContainerClassName}>
+                    {prefix && <div>{prefix}</div>}
+                    <input
+                        ref={node => {
+                            if (typeof ref === "function") {
+                                ref(node);
+                            } else if (ref) {
+                                ref.current = node;
+                            }
+                            inputRef.current = node;
+                        }}
+                        className={twMerge(
+                            ["flex-1", "outline-none", "bg-transparent", "z-1"],
+                            getTextAlignClass(textAlign),
+                        )}
+                        type={type}
+                        placeholder={label && !isFocused ? undefined : placeholder}
+                        onFocusCapture={e => {
+                            if (!shrink) handler.onFocus(e);
+                        }}
+                        onBlurCapture={shrink ? undefined : handler.onBlur}
+                        onKeyDown={handler.handleKeyDown}
+                        onKeyUp={handler.handleKeyUp}
+                        onClick={prefixSuffixUtils.enforceCursorPosition}
+                        onMouseUp={prefixSuffixUtils.enforceCursorPosition}
+                        value={displayValue}
+                        onChange={handler.handleChange}
+                        {...props}
+                    />
+                    {suffix && <div>{suffix}</div>}
+                </div>
+
+                {label && <label className={floatingLabelClassName}>{label}</label>}
             </div>
-
-            {label && <label className={floatingLabelClassName}>{label}</label>}
-
-            {error && <div className="text-error-main text-xs mt-1 px-3">{error}</div>}
+            {(error || helperText) && (
+                <div
+                    className={twMerge(
+                        ["text-xs", "mt-1", "px-3"],
+                        error ? "text-error-main" : "text-disabled-main",
+                    )}>
+                    {error || helperText}
+                </div>
+            )}
         </div>
     );
 });
