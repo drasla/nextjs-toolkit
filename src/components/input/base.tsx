@@ -327,8 +327,8 @@ const Input = forwardRef(function Input(
     );
 
     return (
-        <div className={twMerge("w-full")}>
-            <div className={twMerge(["relative", fullWidth && "w-full", className])}>
+        <div className={twMerge("w-full", className)}>
+            <div className={twMerge(["relative", fullWidth && "w-full"])}>
                 <fieldset className={fieldsetClassName}>
                     {isActive && label && <legend className={legendClassName}>{label}</legend>}
                 </fieldset>
