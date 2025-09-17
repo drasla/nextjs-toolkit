@@ -190,7 +190,7 @@ export function useDropdown<T extends HTMLElement = HTMLElement>({
                             width: `${menuPosition.width}px`,
                         }}
                         className={twMerge(
-                            ["absolute", "py-1", "min-w-[10rem]", "z-50"],
+                            ["absolute", "py-1", "min-w-[10rem]", "z-150"],
                             ["opacity-100", "transition-opacity", "duration-500"],
                             [
                                 "theme-paper",
