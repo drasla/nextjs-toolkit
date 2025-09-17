@@ -167,7 +167,7 @@ export function Backdrop({
             onClick={handleOnClick}>
             <div
                 className={twMerge(
-                    ["w-full", "h-full", "px-0.5", "z-110", "pointer-events-auto", "lg:px-0"],
+                    ["px-0.5", "z-110", "pointer-events-auto", "lg:px-0"],
                     ["transition-all", "duration-300", "ease-in-out"],
                     [isOpacity ? "scale-100" : "scale-80"],
                 )}
