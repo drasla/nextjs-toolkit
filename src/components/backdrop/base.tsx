@@ -17,6 +17,7 @@ export type BackdropProps = {
     disableScrollLock?: boolean;
     open: boolean;
     onClose: VoidFunction;
+    isBlur?: boolean;
 } & PropsWithChildren;
 
 export function Backdrop({
@@ -25,6 +26,7 @@ export function Backdrop({
     disableScrollLock = false,
     open,
     onClose,
+    isBlur = true,
     children,
 }: BackdropProps) {
     const [isVisible, setIsVisible] = useState(false);
@@ -160,7 +162,7 @@ export function Backdrop({
             className={twMerge(
                 ["w-screen", "h-dvh", "fixed", "left-0", "top-0", "z-100"],
                 ["flex", "justify-center", "items-center"],
-                ["backdrop-blur-sm", "bg-gray-300/75"],
+                [isBlur && "backdrop-blur-sm", "bg-gray-300/30"],
                 ["transition-all", "duration-300", "ease-in-out", "transform"],
                 isOpacity ? "opacity-100" : ["opacity-0"],
             )}
