@@ -1,11 +1,20 @@
 "use client";
 
-import { Backdrop, BackdropProps } from "../backdrop/base";
+import { Backdrop, BackdropProps } from "../backdrop";
 import { twMerge } from "tailwind-merge";
 
-type Props = BackdropProps;
+type Props = BackdropProps & {
+    paperClassName?: string;
+};
 
-export function Modal({ open, onClose, children, disableEscapeKey, disableBackdrop }: Props) {
+export function Modal({
+    open,
+    onClose,
+    children,
+    disableEscapeKey,
+    disableBackdrop,
+    paperClassName,
+}: Props) {
     if (!children) return null;
 
     return (
@@ -18,6 +27,7 @@ export function Modal({ open, onClose, children, disableEscapeKey, disableBackdr
                         "rounded-lg",
                         "shadow-xl",
                         "theme-paper",
+                        paperClassName,
                     ])}>
                     {children}
                 </div>

@@ -1,3 +1,3 @@
-import { Backdrop } from "./base";
+import { Backdrop, BackdropProps } from "./base";
 
-export { Backdrop };
+export { Backdrop, type BackdropProps };
